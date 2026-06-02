@@ -1,7 +1,6 @@
 import { Resend } from "resend";
 import twilio from "twilio";
 
-const resend = new Resend(resendApiKey);
 
 const resendApiKey = process.env.RESEND_API_KEY;
 const twilioAccountSid = process.env.TWILIO_ACCOUNT_SID;
@@ -18,6 +17,8 @@ if (
 ) {
   throw new Error("Missing environment variables");
 }
+
+const resend = new Resend(resendApiKey);
 
 const twilioClient = twilio(twilioAccountSid, twilioAuthToken);
 
@@ -87,8 +88,8 @@ ${wensen || "Geen extra wensen ingevuld"}
     }
 
 await twilioClient.messages.create({
-  from: twilioWhatsappFrom,
-  to: twilioWhatsappTo,
+  from: twilioWhatsappFrom as string,
+  to: twilioWhatsappTo as string,
   body: whatsappMessage,
 });
 
