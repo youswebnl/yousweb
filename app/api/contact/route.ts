@@ -1,29 +1,30 @@
 import { Resend } from "resend";
 import twilio from "twilio";
 
-
-const resendApiKey = process.env.RESEND_API_KEY;
-const twilioAccountSid = process.env.TWILIO_ACCOUNT_SID;
-const twilioAuthToken = process.env.TWILIO_AUTH_TOKEN;
-const twilioWhatsappFrom = process.env.TWILIO_WHATSAPP_FROM;
-const twilioWhatsappTo = process.env.TWILIO_WHATSAPP_TO;
-
-if (
-  !resendApiKey ||
-  !twilioAccountSid ||
-  !twilioAuthToken ||
-  !twilioWhatsappFrom ||
-  !twilioWhatsappTo
-) {
-  throw new Error("Missing environment variables");
-}
-
-const resend = new Resend(resendApiKey);
-
-const twilioClient = twilio(twilioAccountSid, twilioAuthToken);
-
 export async function POST(request: Request) {
   try {
+    const resendApiKey = process.env.RESEND_API_KEY;
+    const twilioAccountSid = process.env.TWILIO_ACCOUNT_SID;
+    const twilioAuthToken = process.env.TWILIO_AUTH_TOKEN;
+    const twilioWhatsappFrom = process.env.TWILIO_WHATSAPP_FROM;
+    const twilioWhatsappTo = process.env.TWILIO_WHATSAPP_TO;
+
+    if (
+      !resendApiKey ||
+      !twilioAccountSid ||
+      !twilioAuthToken ||
+      !twilioWhatsappFrom ||
+      !twilioWhatsappTo
+    ) {
+      return Response.json(
+        { error: "Missing environment variables" },
+        { status: 500 }
+      );
+    }
+
+    const resend = new Resend(resendApiKey);
+    const twilioClient = twilio(twilioAccountSid, twilioAuthToken);
+
     const body = await request.json();
 
     const {
@@ -38,7 +39,10 @@ export async function POST(request: Request) {
       prijs,
     } = body;
 
-    const extrasText = extras.length ? extras.join(", ") : "Geen extra opties";
+    const extrasText =
+      Array.isArray(extras) && extras.length
+        ? extras.join(", ")
+        : "Geen extra opties";
 
     const whatsappMessage = `
 🔥 Nieuwe website aanvraag
@@ -87,11 +91,11 @@ ${wensen || "Geen extra wensen ingevuld"}
       return Response.json({ error }, { status: 500 });
     }
 
-await twilioClient.messages.create({
-  from: twilioWhatsappFrom as string,
-  to: twilioWhatsappTo as string,
-  body: whatsappMessage,
-});
+    await twilioClient.messages.create({
+      from: twilioWhatsappFrom,
+      to: twilioWhatsappTo,
+      body: whatsappMessage,
+    });
 
     return Response.json({ success: true });
   } catch (error) {
