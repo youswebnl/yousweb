@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: "/",
     },
 
-    sitemap: "https://yousweb.nl/sitemap.xml",
+    sitemap: "https://www.yousweb.nl/sitemap.xml",
   };
 }
