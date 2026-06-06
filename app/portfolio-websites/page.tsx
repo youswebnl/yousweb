@@ -1,5 +1,6 @@
 "use client";
 
+
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 
@@ -224,6 +225,147 @@ export default function PortfolioWebsitesPage() {
           </motion.article>
         ))}
       </section>
+
+
+
+<section className="relative z-10 mx-auto max-w-7xl px-6 pb-28">
+  <motion.div
+    initial={{ opacity: 0, y: 34 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true, amount: 0.2 }}
+    transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+    className="grid gap-10 rounded-[2.5rem] border border-white/10 bg-white/[0.03] p-6 backdrop-blur-xl md:p-10 lg:grid-cols-[0.9fr_1.1fr]"
+  >
+    <div>
+      <p className="mb-4 text-sm font-medium uppercase tracking-[0.3em] text-blue-400">
+        Website laten maken
+      </p>
+
+      <h2 className="text-4xl font-semibold tracking-[-0.04em] md:text-5xl">
+        Waarom een professionele website belangrijk is.
+      </h2>
+
+      <p className="mt-6 text-base leading-8 text-white/60">
+        Een{" "}
+        <a
+          href="/website-builder"
+          className="text-white underline decoration-blue-400/40 underline-offset-4 transition-colors duration-500 hover:text-blue-300"
+        >
+          professionele website
+        </a>{" "}
+        helpt ondernemers vertrouwen op te bouwen, beter gevonden te worden in
+        Google en meer aanvragen te ontvangen. De voorbeelden hierboven laten
+        zien hoe premium design, responsive ervaring, snelheid en
+        conversiegerichte structuur samenkomen.
+      </p>
+
+      <p className="mt-5 text-base leading-8 text-white/60">
+        Wil je zelf een{" "}
+        <a
+          href="/website-builder"
+          className="text-white underline decoration-blue-400/40 underline-offset-4 transition-colors duration-500 hover:text-blue-300"
+        >
+          website laten maken
+        </a>{" "}
+        die professioneel oogt en bezoekers richting actie stuurt? Bekijk dan
+        onze{" "}
+        <a
+          href="/#prijzen"
+          className="text-white underline decoration-blue-400/40 underline-offset-4 transition-colors duration-500 hover:text-blue-300"
+        >
+          website pakketten
+        </a>{" "}
+        of stel direct jouw website samen.
+      </p>
+
+      <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+        <a
+          href="/website-builder"
+          className="rounded-full bg-white px-6 py-4 text-sm font-semibold text-black transition-colors duration-500 hover:bg-blue-400 hover:text-black"
+        >
+          Website offerte samenstellen
+        </a>
+
+        <a
+          href="/#prijzen"
+          className="rounded-full border border-white/15 px-6 py-4 text-sm font-semibold text-white transition-colors duration-500 hover:border-white hover:bg-white hover:text-black"
+        >
+          Website pakketten bekijken
+        </a>
+      </div>
+
+      <div className="mt-7 flex flex-wrap gap-3 text-sm text-white/50">
+        <span>Gerelateerde pagina&apos;s:</span>
+
+        <a
+          href="/website-builder"
+          className="text-white/70 transition-colors duration-500 hover:text-blue-300"
+        >
+          Website builder
+        </a>
+
+        <span className="text-white/25">•</span>
+
+        <a
+          href="/#prijzen"
+          className="text-white/70 transition-colors duration-500 hover:text-blue-300"
+        >
+          Website pakketten
+        </a>
+
+        <span className="text-white/25">•</span>
+
+        <a
+          href="/#contact"
+          className="text-white/70 transition-colors duration-500 hover:text-blue-300"
+        >
+          Contact opnemen
+        </a>
+      </div>
+    </div>
+
+    <div className="grid gap-4">
+      {[
+        {
+          question: "Wat kost een professionele website?",
+          answer:
+            "Bij YousWeb starten websites vanaf €749. De uiteindelijke prijs hangt af van het pakket, het aantal pagina’s, extra functies en de gewenste uitstraling.",
+        },
+        {
+          question: "Hoe lang duurt het om een website te laten maken?",
+          answer:
+            "Een basiswebsite kan vaak relatief snel worden opgebouwd. Grotere websites met meerdere pagina’s, extra content en premium afwerking vragen meer voorbereiding en afstemming.",
+        },
+        {
+          question: "Is SEO inbegrepen bij de website?",
+          answer:
+            "Ja. Elke website krijgt een sterke SEO-basis met nette structuur, headings, interne links, snelle laadtijd en responsive opbouw. Extra SEO-landingspagina’s kunnen later worden toegevoegd.",
+        },
+        {
+          question: "Werkt mijn website goed op mobiel?",
+          answer:
+            "Ja. Elke website wordt responsive gebouwd, zodat desktop, tablet en mobiel professioneel aanvoelen en bezoekers eenvoudig contact kunnen opnemen.",
+        },
+      ].map((item) => (
+        <div
+          key={item.question}
+          className="rounded-3xl border border-white/10 bg-black/25 p-5 transition-colors duration-500 hover:border-blue-400/25 hover:bg-blue-400/[0.04]"
+        >
+          <h3 className="text-lg font-semibold tracking-[-0.02em]">
+            {item.question}
+          </h3>
+
+          <p className="mt-3 text-sm leading-7 text-white/55">
+            {item.answer}
+          </p>
+        </div>
+      ))}
+    </div>
+  </motion.div>
+</section>
+
+
+
 
       <AnimatePresence>
         {activeVideo && (
