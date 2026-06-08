@@ -1,3 +1,9 @@
+import type { Metadata } from "next";
+import { Geist, Geist_Mono } from "next/font/google";
+import Script from "next/script";
+import { GoogleAnalytics } from "@next/third-parties/google";
+import "./globals.css";
+
 export const metadata: Metadata = {
   title: {
     default: "YousWeb | Professionele websites voor ondernemers",
@@ -7,7 +13,7 @@ export const metadata: Metadata = {
   description:
     "Professionele websites met premium design, sterke SEO-structuur en gericht op meer aanvragen en klanten.",
 
-  metadataBase: new URL("https://yousweb.nl"),
+metadataBase: new URL("https://www.yousweb.nl"),
 
   openGraph: {
     title: "YousWeb | Professionele websites voor ondernemers",
