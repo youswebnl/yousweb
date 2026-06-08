@@ -10,8 +10,8 @@ const projects = [
     type: "Montage & renovatie website",
     description:
       "Een professionele website voor een montagebedrijf, gebouwd om vertrouwen te wekken, diensten duidelijk te presenteren en bezoekers richting contact te sturen.",
-    desktopVideo: "/videos/zaansemontage-desktop.mp4",
-    mobileVideo: "/videos/zaansemontage-mobile.mp4",
+    desktopVideo: "https://cqvozahseaepel7p.public.blob.vercel-storage.com/zaansemontage-desktop.mp4",
+    mobileVideo: "https://cqvozahseaepel7p.public.blob.vercel-storage.com/zaansemontage-mobile.mp4",
     highlights: [
       "Sterke eerste indruk",
       "Duidelijke dienstenstructuur",
@@ -24,8 +24,8 @@ const projects = [
     type: "Therapie & persoonlijke begeleiding",
     description:
       "Een zachte, rustige en professionele website voor een therapeutische praktijk, met focus op vertrouwen, helderheid en een prettige gebruikerservaring.",
-    desktopVideo: "/videos/yoursoultherapist-desktop.mp4",
-    mobileVideo: "/videos/yoursoultherapist-mobile.mp4",
+    desktopVideo: "https://cqvozahseaepel7p.public.blob.vercel-storage.com/yoursoultherapist-desktop.mp4",
+    mobileVideo: "https://cqvozahseaepel7p.public.blob.vercel-storage.com/yoursoultherapist-mobile.mp4",
     highlights: [
       "Rustige premium uitstraling",
       "Heldere pagina-opbouw",

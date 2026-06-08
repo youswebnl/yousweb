@@ -1,21 +1,3 @@
-import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
-import { GoogleAnalytics } from "@next/third-parties/google";
-import Script from "next/script";
-
-
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
 export const metadata: Metadata = {
   title: {
     default: "YousWeb | Professionele websites voor ondernemers",
@@ -28,19 +10,29 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://yousweb.nl"),
 
   openGraph: {
-    title: "YousWeb",
+    title: "YousWeb | Professionele websites voor ondernemers",
     description:
-      "Professionele websites met premium design, sterke SEO-structuur en gericht op meer aanvragen.",
+      "Premium websites met sterke SEO-structuur, moderne uitstraling en focus op meer aanvragen.",
+    url: "https://www.yousweb.nl",
     siteName: "YousWeb",
+    images: [
+      {
+        url: "https://www.yousweb.nl/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "YousWeb - Professionele websites voor ondernemers",
+      },
+    ],
     locale: "nl_NL",
     type: "website",
   },
 
   twitter: {
     card: "summary_large_image",
-    title: "YousWeb",
+    title: "YousWeb | Professionele websites voor ondernemers",
     description:
-      "Professionele websites voor ondernemers die online willen groeien.",
+      "Premium websites met sterke SEO-structuur, moderne uitstraling en focus op meer aanvragen.",
+    images: ["https://www.yousweb.nl/og-image.png"],
   },
 };
 
