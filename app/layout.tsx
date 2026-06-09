@@ -52,6 +52,65 @@ export const metadata: Metadata = {
   },
 };
 
+const structuredData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "@id": "https://www.yousweb.nl/#business",
+    name: "YousWeb",
+    legalName: "YousWeb",
+    url: "https://www.yousweb.nl",
+    logo: "https://www.yousweb.nl/YousWeb-logo-in-modern-design.png",
+    image: "https://www.yousweb.nl/og-image.png",
+    description:
+      "YousWeb bouwt professionele websites met premium design, responsive structuur, SEO-basis en conversiegerichte UX voor ondernemers.",
+    identifier: {
+      "@type": "PropertyValue",
+      name: "KVK",
+      value: "87206757",
+    },
+    areaServed: {
+      "@type": "Country",
+      name: "Nederland",
+    },
+    address: {
+      "@type": "PostalAddress",
+      addressCountry: "NL",
+      addressRegion: "Noord-Holland",
+      addressLocality: "Amsterdam",
+    },
+    serviceType: [
+      "Webdesign",
+      "Website laten maken",
+      "Website ontwikkeling",
+      "SEO website structuur",
+      "Conversiegerichte website",
+      "Responsive webdesign",
+    ],
+    sameAs: [
+      "https://www.instagram.com/youswebnl",
+      "https://www.facebook.com/share/18GZb6QM2R/",
+      "https://www.google.com/search?kgmid=/g/11npxm9kyl&hl=nl-NL&q=Yousweb",
+    ],
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": "https://www.yousweb.nl/#website",
+    name: "YousWeb",
+    url: "https://www.yousweb.nl",
+    publisher: {
+      "@id": "https://www.yousweb.nl/#business",
+    },
+    inLanguage: "nl-NL",
+    potentialAction: {
+      "@type": "SearchAction",
+      target: "https://www.yousweb.nl/?s={search_term_string}",
+      "query-input": "required name=search_term_string",
+    },
+  },
+];
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -66,21 +125,7 @@ export default function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "ProfessionalService",
-              name: "YousWeb",
-              url: "https://www.yousweb.nl",
-              areaServed: "Netherlands",
-              serviceType: "Webdesign en website ontwikkeling",
-              description:
-                "YousWeb bouwt professionele websites met premium design, responsive structuur, SEO-basis en conversiegerichte UX.",
-              sameAs: [
-                "https://www.instagram.com/",
-                "https://www.tiktok.com/",
-                "https://x.com/",
-              ],
-            }),
+            __html: JSON.stringify(structuredData),
           }}
         />
 
