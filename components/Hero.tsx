@@ -4,20 +4,20 @@ import { motion } from "framer-motion";
 
 const cards = [
   {
-    label: "Responsive",
-    title: "Perfect op elk scherm",
-    text: "Elke website wordt premium opgebouwd voor desktop, tablet en mobiel.",
+    label: "Vertrouwen",
+    title: "Een website die professioneel voelt",
+    text: "Een sterke eerste indruk met premium design, duidelijke structuur en een uitstraling die past bij jouw bedrijf.",
   },
   {
-    label: "SEO Focused",
-    title: "Gebouwd voor zichtbaarheid",
-    text: "Slimme structuur en performance voor een sterke online basis.",
+    label: "Vindbaarheid",
+    title: "Gebouwd met SEO als basis",
+    text: "Slim opgebouwd met nette structuur, snelle performance en een sterke basis om beter gevonden te worden in Google.",
     featured: true,
   },
   {
-    label: "Agency Level",
-    title: "Premium uitstraling",
-    text: "Moderne visuals, luxe spacing en sterke gebruikerservaring.",
+    label: "Aanvragen",
+    title: "Gericht op meer contactmomenten",
+    text: "Elke pagina wordt logisch opgebouwd zodat bezoekers sneller begrijpen wat je aanbiedt en makkelijker contact opnemen.",
   },
 ];
 
@@ -35,7 +35,7 @@ export default function Hero() {
           transition={{ duration: 2.4, repeat: Infinity, ease: "easeInOut" }}
           className="h-2 w-2 rounded-full bg-blue-400"
         />
-        Premium websites voor moderne ondernemers
+        Premium websites voor ondernemers door heel Nederland
       </motion.div>
 
       <motion.h1
@@ -44,7 +44,7 @@ export default function Hero() {
         transition={{ duration: 0.95, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
         className="mt-10 max-w-5xl text-5xl font-semibold leading-none tracking-[-0.06em] md:text-7xl lg:text-[96px]"
       >
-        High-end websites die professioneel ogen, converteren en groeien.
+        Professionele websites die vertrouwen wekken en meer aanvragen opleveren.
       </motion.h1>
 
       <motion.p
@@ -53,8 +53,9 @@ export default function Hero() {
         transition={{ duration: 0.85, delay: 0.35, ease: [0.16, 1, 0.3, 1] }}
         className="mt-8 max-w-2xl text-base leading-8 text-white/60 md:text-lg"
       >
-        Moderne websites met premium uitstraling, sterke structuur en slimme UX
-        voor ondernemers die online serieus willen groeien.
+        Laat een moderne website maken met premium uitstraling, sterke SEO-basis
+        en een slimme UX die bezoekers helpt sneller de stap naar contact te
+        zetten.
       </motion.p>
 
       <motion.div
