@@ -16,6 +16,7 @@ type ExtraOption = {
   price: number;
   billing: "one-time" | "monthly";
   description: string;
+  availableFor?: WebsitePackage["name"][];
 };
 
 const packages: WebsitePackage[] = [
@@ -45,37 +46,44 @@ const extras: ExtraOption[] = [
     name: "Extra pagina",
     price: 175,
     billing: "one-time",
-    description: "Voor een extra dienst-, over ons-, werkwijze- of informatiepagina.",
+    description:
+      "Voor een extra dienst-, over ons-, werkwijze- of informatiepagina.",
   },
   {
-    name: "SEO-landingspagina",
-    price: 275,
+    name: "Extra SEO-landingspagina",
+    price: 250,
     billing: "one-time",
-    description: "Voor een extra pagina gericht op vindbaarheid en aanvragen.",
+    description:
+      "Voor een extra pagina gericht op vindbaarheid, relevante zoekwoorden en aanvragen.",
   },
   {
     name: "Premium animatiepakket",
     price: 350,
     billing: "one-time",
-    description: "Voor extra beweging, verfijnde interacties en een luxere ervaring.",
+    description:
+      "Voor extra beweging, verfijnde interacties en een luxere ervaring. Beschikbaar bij Growth en Agency Level.",
+    availableFor: ["Growth", "Agency Level"],
   },
   {
     name: "Meertalige website NL/ENG",
     price: 450,
     billing: "one-time",
-    description: "Voor een Nederlandse en Engelse versie van de belangrijkste pagina’s.",
+    description:
+      "Voor een Nederlandse en Engelse versie van de belangrijkste pagina’s.",
   },
   {
-    name: "Booking/contact systeem",
+    name: "Booking (afspraak- of aanvraag) systeem",
     price: 350,
     billing: "one-time",
-    description: "Voor afspraken, aanvragen of een uitgebreid contactproces.",
+    description:
+      "Voor afspraken, aanvragen, intakevelden of een uitgebreid contactproces.",
   },
   {
     name: "Onderhoud pakket",
     price: 150,
     billing: "monthly",
-    description: "Voor maandelijkse ondersteuning, kleine updates en technische controle.",
+    description:
+      "Voor maandelijkse ondersteuning, kleine updates en technische controle.",
   },
 ];
 
@@ -86,7 +94,9 @@ export default function WebsiteBuilderPage() {
   const [submitted, setSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showContactErrors, setShowContactErrors] = useState(false);
-  const [selectedPackage, setSelectedPackage] = useState<WebsitePackage>(packages[1]);
+  const [selectedPackage, setSelectedPackage] = useState<WebsitePackage>(
+    packages[1],
+  );
   const [selectedExtras, setSelectedExtras] = useState<string[]>([]);
 
   const [formData, setFormData] = useState({
@@ -106,7 +116,7 @@ export default function WebsiteBuilderPage() {
 
   const selectedExtraObjects = useMemo(
     () => extras.filter((extra) => selectedExtras.includes(extra.name)),
-    [selectedExtras]
+    [selectedExtras],
   );
 
   const oneTimeExtrasTotal = useMemo(
@@ -114,7 +124,7 @@ export default function WebsiteBuilderPage() {
       selectedExtraObjects
         .filter((extra) => extra.billing === "one-time")
         .reduce((sum, extra) => sum + extra.price, 0),
-    [selectedExtraObjects]
+    [selectedExtraObjects],
   );
 
   const monthlyExtrasTotal = useMemo(
@@ -122,10 +132,13 @@ export default function WebsiteBuilderPage() {
       selectedExtraObjects
         .filter((extra) => extra.billing === "monthly")
         .reduce((sum, extra) => sum + extra.price, 0),
-    [selectedExtraObjects]
+    [selectedExtraObjects],
   );
 
   const totalPrice = selectedPackage.price + oneTimeExtrasTotal;
+
+  const extraIsAvailableForSelectedPackage = (extra: ExtraOption) =>
+    !extra.availableFor || extra.availableFor.includes(selectedPackage.name);
 
   const emailIsValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email);
   const phoneIsValid = /^[0-9+\s()-]{10,15}$/.test(formData.telefoon);
@@ -152,10 +165,14 @@ export default function WebsiteBuilderPage() {
   };
 
   const toggleExtra = (name: string) => {
+    const extra = extras.find((item) => item.name === name);
+
+    if (!extra || !extraIsAvailableForSelectedPackage(extra)) return;
+
     setSelectedExtras((current) =>
       current.includes(name)
         ? current.filter((item) => item !== name)
-        : [...current, name]
+        : [...current, name],
     );
   };
 
@@ -223,7 +240,8 @@ export default function WebsiteBuilderPage() {
             persoonlijk contact met je op.
             <br />
             <br />
-            Controleer eventueel ook jouw spamfolder wanneer je geen reactie ziet.
+            Controleer eventueel ook jouw spamfolder wanneer je geen reactie
+            ziet.
           </p>
 
           <div className="mt-8 inline-flex rounded-full border border-blue-400/20 bg-blue-400/[0.06] px-5 py-3 text-sm text-blue-200">
@@ -248,7 +266,10 @@ export default function WebsiteBuilderPage() {
           Yous<span className="text-blue-400">Web</span>
         </a>
 
-        <a href="/website-laten-maken" className="text-sm text-white/60 hover:text-white">
+        <a
+          href="/website-laten-maken"
+          className="text-sm text-white/60 hover:text-white"
+        >
           Terug naar website laten maken
         </a>
       </nav>
@@ -265,7 +286,8 @@ export default function WebsiteBuilderPage() {
 
           <p className="mt-6 max-w-2xl text-base leading-8 text-white/60">
             Kies een pakket, voeg extra opties toe en ontvang een duidelijke
-            prijsindicatie. De definitieve prijs stemmen we persoonlijk met je af.
+            prijsindicatie. De definitieve prijs stemmen we persoonlijk met je
+            af.
           </p>
         </div>
 
@@ -319,7 +341,20 @@ export default function WebsiteBuilderPage() {
                         return (
                           <button
                             key={pack.name}
-                            onClick={() => setSelectedPackage(pack)}
+                            onClick={() => {
+                              setSelectedPackage(pack);
+                              setSelectedExtras((current) =>
+                                current.filter((selectedExtraName) => {
+                                  const extra = extras.find(
+                                    (item) => item.name === selectedExtraName,
+                                  );
+                                  return (
+                                    !extra?.availableFor ||
+                                    extra.availableFor.includes(pack.name)
+                                  );
+                                }),
+                              );
+                            }}
                             className={`rounded-[2rem] border p-6 text-left transition hover:scale-[1.02] ${
                               isSelected
                                 ? "border-blue-400 bg-blue-400/[0.12] shadow-[0_0_70px_rgba(59,130,246,0.18)]"
@@ -334,13 +369,17 @@ export default function WebsiteBuilderPage() {
                               </div>
                             )}
 
-                            <h3 className="text-2xl font-semibold">{pack.name}</h3>
+                            <h3 className="text-2xl font-semibold">
+                              {pack.name}
+                            </h3>
 
                             <p className="mt-3 text-xl font-semibold">
                               €{pack.price.toLocaleString("nl-NL")}
                             </p>
 
-                            <p className="mt-3 text-sm text-blue-300">{pack.pages}</p>
+                            <p className="mt-3 text-sm text-blue-300">
+                              {pack.pages}
+                            </p>
 
                             <p className="mt-4 text-sm leading-6 text-white/55">
                               {pack.description}
@@ -359,23 +398,29 @@ export default function WebsiteBuilderPage() {
                     </h2>
 
                     <p className="mt-4 max-w-2xl text-sm leading-7 text-white/50">
-                      Extra opties zijn bedoeld voor aanvullende wensen bovenop je
-                      pakket. Maandelijkse opties worden apart getoond en niet
-                      meegerekend als eenmalige projectprijs.
+                      Extra opties zijn bedoeld voor aanvullende wensen bovenop
+                      je pakket. Maandelijkse opties worden apart getoond en
+                      niet meegerekend als eenmalige projectprijs.
                     </p>
 
                     <div className="mt-7 grid gap-4 md:grid-cols-2">
                       {extras.map((extra) => {
                         const isSelected = selectedExtras.includes(extra.name);
+                        const isAvailable =
+                          extraIsAvailableForSelectedPackage(extra);
 
                         return (
                           <button
                             key={extra.name}
+                            type="button"
+                            disabled={!isAvailable}
                             onClick={() => toggleExtra(extra.name)}
                             className={`rounded-2xl border px-5 py-4 text-left text-sm transition ${
                               isSelected
                                 ? "border-blue-400/50 bg-blue-400/[0.1] text-white"
-                                : "border-white/10 bg-black/25 text-white/70 hover:border-blue-400/30 hover:bg-blue-400/[0.06]"
+                                : isAvailable
+                                  ? "border-white/10 bg-black/25 text-white/70 hover:border-blue-400/30 hover:bg-blue-400/[0.06]"
+                                  : "cursor-not-allowed border-white/5 bg-white/[0.02] text-white/30 opacity-60"
                             }`}
                           >
                             <div className="flex items-start justify-between gap-4">
@@ -387,11 +432,18 @@ export default function WebsiteBuilderPage() {
                                 <span className="mt-2 block text-xs leading-5 text-white/45">
                                   {extra.description}
                                 </span>
+
+                                {!isAvailable && (
+                                  <span className="mt-2 block text-xs text-blue-300/70">
+                                    Beschikbaar vanaf Growth.
+                                  </span>
+                                )}
                               </div>
 
                               <span className="shrink-0 text-blue-300">
-                                + €{extra.price.toLocaleString("nl-NL")}
-                                {extra.billing === "monthly" ? " p/m" : ""}
+                                {extra.billing === "monthly"
+                                  ? `Vanaf €${extra.price.toLocaleString("nl-NL")} p/m`
+                                  : `+ €${extra.price.toLocaleString("nl-NL")}`}
                               </span>
                             </div>
                           </button>
@@ -418,14 +470,15 @@ export default function WebsiteBuilderPage() {
 
                       {monthlyExtrasTotal > 0 && (
                         <p className="mt-4 text-lg font-semibold text-blue-200">
-                          + €{monthlyExtrasTotal.toLocaleString("nl-NL")} p/m
-                          voor maandelijkse opties
+                          + vanaf €{monthlyExtrasTotal.toLocaleString("nl-NL")}{" "}
+                          p/m voor maandelijkse opties
                         </p>
                       )}
 
                       <p className="mt-6 max-w-2xl text-base leading-8 text-white/60">
-                        Dit is een prijsindicatie. Na jouw aanvraag bespreken we jouw
-                        wensen persoonlijk en bevestigen we de definitieve prijs.
+                        Dit is een prijsindicatie. Na jouw aanvraag bespreken we
+                        jouw wensen persoonlijk en bevestigen we de definitieve
+                        prijs.
                       </p>
                     </div>
                   </div>
@@ -476,7 +529,9 @@ export default function WebsiteBuilderPage() {
                       <textarea
                         placeholder="Extra wensen of functies"
                         value={formData.wensen}
-                        onChange={(event) => updateFormData("wensen", event.target.value)}
+                        onChange={(event) =>
+                          updateFormData("wensen", event.target.value)
+                        }
                         className="min-h-[160px] rounded-2xl border border-white/10 bg-black/25 px-5 py-4 text-sm text-white outline-none transition placeholder:text-white/35 focus:border-blue-400/50 md:col-span-2"
                       />
                     </div>
@@ -500,7 +555,9 @@ export default function WebsiteBuilderPage() {
                       disabled={isSubmitting}
                       className="mt-8 rounded-full bg-white px-8 py-4 text-sm font-semibold text-black transition hover:scale-[1.03] disabled:cursor-not-allowed disabled:opacity-70"
                     >
-                      {isSubmitting ? "Aanvraag wordt verzonden..." : "Aanvraag verzenden"}
+                      {isSubmitting
+                        ? "Aanvraag wordt verzonden..."
+                        : "Aanvraag verzenden"}
                     </button>
                   </div>
                 )}
@@ -538,7 +595,7 @@ export default function WebsiteBuilderPage() {
 
             {monthlyExtrasTotal > 0 && (
               <p className="mt-3 text-sm font-medium text-blue-200">
-                + €{monthlyExtrasTotal.toLocaleString("nl-NL")} p/m
+                + vanaf €{monthlyExtrasTotal.toLocaleString("nl-NL")} p/m
               </p>
             )}
 
@@ -565,17 +622,19 @@ export default function WebsiteBuilderPage() {
               <div className="mt-6 space-y-2">
                 {selectedExtraObjects.map((extra) => (
                   <p key={extra.name} className="text-sm text-white/45">
-                    + {extra.name} · €{extra.price.toLocaleString("nl-NL")}
-                    {extra.billing === "monthly" ? " p/m" : ""}
+                    + {extra.name} ·{" "}
+                    {extra.billing === "monthly"
+                      ? `vanaf €${extra.price.toLocaleString("nl-NL")} p/m`
+                      : `€${extra.price.toLocaleString("nl-NL")}`}
                   </p>
                 ))}
               </div>
             )}
 
             <p className="mt-7 text-xs leading-6 text-white/40">
-              Na verzending nemen we persoonlijk contact op. De definitieve prijs
-              wordt bevestigd na het bespreken van jouw wensen. Maandelijkse opties
-              worden apart besproken.
+              Na verzending nemen we persoonlijk contact op. De definitieve
+              prijs wordt bevestigd na het bespreken van jouw wensen.
+              Maandelijkse opties worden apart besproken.
             </p>
           </aside>
         </div>
