@@ -7,11 +7,31 @@ import FAQ from "@/components/FAQ";
 import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
 
-
 export const metadata = {
-  title: "YousWeb | Websites die klanten opleveren",
+  title: "YousWeb | Professionele websites die klanten opleveren",
   description:
-    "Professionele websites voor ondernemers. Snel online, modern design en gericht op meer aanvragen en klanten.",
+    "Laat een professionele website maken die vertrouwen wekt, snel laadt en gericht is op meer aanvragen. Premium webdesign voor ondernemers.",
+
+  alternates: {
+    canonical: "https://www.yousweb.nl",
+  },
+
+  openGraph: {
+    title: "YousWeb | Professionele websites die klanten opleveren",
+    description:
+      "Premium webdesign voor ondernemers. Moderne websites met sterke uitstraling, snelle laadtijd en focus op meer aanvragen.",
+    url: "https://www.yousweb.nl",
+    siteName: "YousWeb",
+    type: "website",
+    locale: "nl_NL",
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title: "YousWeb | Professionele websites die klanten opleveren",
+    description:
+      "Laat een professionele website maken met premium design, SEO-basis en conversiegerichte UX.",
+  },
 };
 
 export default function Home() {

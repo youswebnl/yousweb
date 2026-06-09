@@ -1,8 +1,8 @@
 export const metadata = {
-  title: "Website laten maken | Professionele websites voor ondernemers - YousWeb",
+  title: "Website laten maken voor ondernemers | Premium webdesign - YousWeb",
 
   description:
-    "Professionele website laten maken voor jouw bedrijf. Premium design, snelle laadtijden, sterke SEO-structuur en gericht op meer aanvragen. Bekijk onze website pakketten.",
+    "Laat een professionele website maken die vertrouwen wekt, snel laadt en gericht is op meer aanvragen. Premium webdesign, SEO-basis en duidelijke pakketten.",
 
   keywords: [
     "website laten maken",
@@ -16,14 +16,14 @@ export const metadata = {
   ],
 
   alternates: {
-    canonical: "/website-laten-maken",
+    canonical: "https://www.yousweb.nl/website-laten-maken",
   },
 
   openGraph: {
     title: "Website laten maken | Professionele websites voor ondernemers",
     description:
       "Laat een professionele website bouwen met premium design, responsive structuur, sterke UX en SEO-basis.",
-    url: "/website-laten-maken",
+    url: "https://www.yousweb.nl/website-laten-maken",
     siteName: "YousWeb",
     type: "website",
     locale: "nl_NL",
