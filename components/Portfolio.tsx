@@ -2,22 +2,29 @@
 
 import { motion } from "framer-motion";
 
-const features = [
+const desktopFeatures = [
   "Premium homepage structuur",
   "Website pakketten en prijsrichting",
   "Offerte builder flow",
   "Contact via WhatsApp en e-mail",
 ];
 
+const mobileSteps = [
+  "Stel jouw website samen",
+  "Verstuur jouw aanvraag",
+  "Persoonlijk contact",
+  "Start van het project",
+];
+
 export default function Portfolio() {
   return (
-    <section id="werk" className="relative z-10 mx-auto max-w-7xl px-6 py-28">
+    <section id="werk" className="relative z-10 mx-auto max-w-7xl px-6 py-20 lg:py-28">
       <motion.div
         initial={{ opacity: 0, y: 34 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: false, amount: 0.35 }}
         transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
-        className="mb-14 max-w-3xl"
+        className="mb-10 max-w-3xl lg:mb-14"
       >
         <p className="mb-4 text-sm font-medium uppercase tracking-[0.3em] text-blue-400">
           Flagship case
@@ -34,13 +41,94 @@ export default function Portfolio() {
         </p>
       </motion.div>
 
+      {/* Mobile showcase */}
+      <motion.div
+        initial={{ opacity: 0, y: 44, scale: 0.98 }}
+        whileInView={{ opacity: 1, y: 0, scale: 1 }}
+        viewport={{ once: false, amount: 0.25 }}
+        transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+        className="overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.03] p-5 backdrop-blur-xl lg:hidden"
+      >
+        <div className="mb-6 inline-flex rounded-full border border-blue-400/30 bg-blue-400/10 px-4 py-2 text-xs font-medium uppercase tracking-[0.22em] text-blue-200">
+          Live demo
+        </div>
+
+        <h3 className="text-3xl font-semibold tracking-[-0.04em] text-white">
+          Zo werkt jouw aanvraag
+        </h3>
+
+        <p className="mt-4 text-base leading-7 text-white/55">
+          Bekijk hoe jouw websiteproject van aanvraag tot oplevering verloopt.
+        </p>
+
+        <div className="mt-8 rounded-[2rem] border border-white/15 bg-[#080808] p-3 shadow-2xl">
+          <div className="relative flex min-h-[440px] items-center justify-center overflow-hidden rounded-[1.5rem] border border-white/10 bg-white/[0.03] text-center">
+            <motion.div
+              animate={{
+                opacity: [0.65, 1, 0.65],
+                scale: [1, 1.04, 1],
+              }}
+              transition={{
+                duration: 7,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+              className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(59,130,246,0.24),transparent_38%),radial-gradient(circle_at_bottom_right,rgba(139,92,246,0.16),transparent_38%)]"
+            />
+
+            <div className="relative px-6">
+              <p className="text-xs uppercase tracking-[0.3em] text-white/30">
+                Video demo
+              </p>
+
+              <p className="mt-3 text-xl font-semibold text-white/85">
+                Aanvraagflow
+              </p>
+
+              <p className="mt-3 text-sm leading-6 text-white/40">
+                Later: yousweb-aanvraag-demo.mp4
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div className="mt-7">
+          <p className="mb-4 text-sm font-medium uppercase tracking-[0.22em] text-white/35">
+            In deze demo
+          </p>
+
+          <div className="grid gap-3">
+            {mobileSteps.map((step, index) => (
+              <motion.div
+                key={step}
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: false, amount: 0.45 }}
+                transition={{
+                  duration: 0.65,
+                  delay: 0.12 + index * 0.08,
+                  ease: [0.16, 1, 0.3, 1],
+                }}
+                className="flex items-center gap-3 rounded-2xl border border-white/10 bg-white/[0.03] px-4 py-4 text-sm font-medium text-white/75"
+              >
+                <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-blue-400/10 text-xs font-semibold text-blue-300">
+                  {index + 1}
+                </span>
+                {step}
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </motion.div>
+
+      {/* Desktop showcase */}
       <motion.a
         href="/portfolio-websites"
         initial={{ opacity: 0, y: 44, scale: 0.98 }}
         whileInView={{ opacity: 1, y: 0, scale: 1 }}
         viewport={{ once: false, amount: 0.25 }}
         transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-        className="group block overflow-hidden rounded-[2.5rem] border border-white/10 bg-white/[0.03] p-5 backdrop-blur-xl transition-colors duration-500 hover:-translate-y-2 hover:border-white/20 hover:bg-white/[0.05] md:p-7"
+        className="group hidden overflow-hidden rounded-[2.5rem] border border-white/10 bg-white/[0.03] p-7 backdrop-blur-xl transition-colors duration-500 hover:-translate-y-2 hover:border-white/20 hover:bg-white/[0.05] lg:block"
       >
         <div className="grid gap-7 lg:grid-cols-[1.35fr_0.65fr]">
           <motion.div
@@ -48,7 +136,7 @@ export default function Portfolio() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: false, amount: 0.35 }}
             transition={{ duration: 0.9, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-            className="relative min-h-[360px] overflow-hidden rounded-[2rem] border border-white/10 bg-[#0B0B0B] p-4 md:min-h-[520px]"
+            className="relative min-h-[520px] overflow-hidden rounded-[2rem] border border-white/10 bg-[#0B0B0B] p-4"
           >
             <motion.div
               animate={{
@@ -63,7 +151,7 @@ export default function Portfolio() {
               className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(59,130,246,0.28),transparent_35%),radial-gradient(circle_at_bottom_right,rgba(139,92,246,0.18),transparent_35%)]"
             />
 
-            <div className="relative flex h-full min-h-[330px] items-center justify-center rounded-[1.5rem] border border-white/10 bg-black/45 text-center transition duration-500 group-hover:border-blue-400/20 md:min-h-[490px]">
+            <div className="relative flex h-full min-h-[490px] items-center justify-center rounded-[1.5rem] border border-white/10 bg-black/45 text-center transition duration-500 group-hover:border-blue-400/20">
               <div>
                 <p className="text-sm uppercase tracking-[0.25em] text-white/35">
                   Desktop preview
@@ -93,18 +181,17 @@ export default function Portfolio() {
               </div>
 
               <h3 className="text-3xl font-semibold tracking-[-0.03em]">
-                Van premium website naar offerte-aanvraag
+                Van eerste bezoek tot aanvraag
               </h3>
 
               <p className="mt-5 text-base leading-7 text-white/55">
-                Bezoekers zien niet alleen een mooie website, maar ook hoe ze
-                pakketten vergelijken, extra opties kiezen en hun aanvraag
-                kunnen verzenden.
+                Ontdek hoe bezoekers door de website navigeren, opties kiezen
+                en contact opnemen.
               </p>
             </div>
 
             <div className="grid gap-3">
-              {features.map((item, index) => (
+              {desktopFeatures.map((item, index) => (
                 <motion.div
                   key={item}
                   initial={{ opacity: 0, y: 18 }}
