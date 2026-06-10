@@ -27,11 +27,11 @@ export const metadata: Metadata = {
 const priceFactors = [
   {
     title: "Aantal pagina’s",
-    text: "Een one-page website is goedkoper dan een website met meerdere dienstenpagina’s, over-ons pagina, portfolio en uitgebreide content.",
+    text: "Een one-page website is goedkoper dan een website met meerdere dienstenpagina’s, een over-ons pagina, portfolio, FAQ en uitgebreide content.",
   },
   {
     title: "Designniveau",
-    text: "Een basisdesign vraagt minder tijd dan een premium website met maatwerk uitstraling, sterke visuele hiërarchie en verfijnde afwerking.",
+    text: "Een basisdesign vraagt minder tijd dan een premium website met sterke visuele hiërarchie, verfijnde afwerking en een uitstraling die past bij jouw merk.",
   },
   {
     title: "SEO-structuur",
@@ -39,7 +39,7 @@ const priceFactors = [
   },
   {
     title: "Extra functies",
-    text: "Denk aan formulieren, aanvraagflows, meertaligheid, animaties, booking systemen of extra conversie-elementen.",
+    text: "Denk aan formulieren, aanvraagflows, meertaligheid, animaties, afspraak- of aanvraagsystemen en extra conversie-elementen.",
   },
 ];
 
@@ -59,6 +59,29 @@ const packages = [
     name: "Agency Level",
     price: "Vanaf €2.250",
     text: "Voor premium positionering, uitgebreide uitstraling en een website die voelt als een professioneel merk.",
+  },
+];
+
+const relatedPages = [
+  {
+    title: "Website laten maken",
+    href: "/website-laten-maken",
+    text: "Bekijk hoe YousWeb professionele websites bouwt voor ondernemers die online willen groeien.",
+  },
+  {
+    title: "Website laten maken voor zzp’ers",
+    href: "/website-laten-maken-zzp",
+    text: "Speciaal voor zzp’ers die professioneel zichtbaar willen worden en meer aanvragen willen ontvangen.",
+  },
+  {
+    title: "Portfolio websites",
+    href: "/portfolio-websites",
+    text: "Bekijk echte website voorbeelden en ontdek hoe premium design, structuur en conversie samenkomen.",
+  },
+  {
+    title: "Website builder",
+    href: "/website-builder",
+    text: "Stel jouw website samen en ontvang direct een duidelijke prijsindicatie.",
   },
 ];
 
@@ -118,7 +141,15 @@ export default function KostenWebsiteLatenMakenPage() {
             De kosten van een website hangen af van jouw doelen, het aantal
             pagina’s, het designniveau en extra functies. Bij YousWeb starten
             professionele websites vanaf <strong className="text-white">€749</strong>,
-            met duidelijke pakketten en een transparante prijsindicatie.
+            met duidelijke pakketten en een transparante prijsindicatie. Wil je
+            eerst begrijpen hoe wij een{" "}
+            <a
+              href="/website-laten-maken"
+              className="text-blue-400 underline-offset-4 hover:underline"
+            >
+              professionele website laten maken
+            </a>
+            ? Bekijk dan ook onze hoofdservicepagina.
           </p>
 
           <div className="mt-10 flex flex-col gap-4 sm:flex-row">
@@ -130,10 +161,10 @@ export default function KostenWebsiteLatenMakenPage() {
             </a>
 
             <a
-              href="/website-laten-maken"
+              href="/portfolio-websites"
               className="rounded-full border border-white/15 bg-white/[0.03] px-8 py-4 text-sm font-semibold text-white transition hover:scale-[1.03] hover:bg-white/10"
             >
-              Website laten maken
+              Bekijk portfolio websites
             </a>
           </div>
         </div>
@@ -149,6 +180,19 @@ export default function KostenWebsiteLatenMakenPage() {
             Website prijzen verschillen per doel, structuur en gewenste
             uitstraling.
           </h2>
+
+          <p className="mt-7 max-w-2xl text-base leading-8 text-white/60 md:text-lg">
+            Daarom werken we met duidelijke pakketten. Zo zie je snel welke
+            investering past bij jouw fase. Ben je zelfstandig ondernemer? Dan
+            kan de pagina{" "}
+            <a
+              href="/website-laten-maken-zzp"
+              className="text-blue-400 underline-offset-4 hover:underline"
+            >
+              website laten maken voor zzp’ers
+            </a>{" "}
+            extra relevant zijn.
+          </p>
         </div>
 
         <div className="grid gap-6 lg:grid-cols-3">
@@ -196,7 +240,15 @@ export default function KostenWebsiteLatenMakenPage() {
           <p className="mt-8 max-w-2xl text-base leading-8 text-white/60 md:text-lg">
             Een goede website moet niet alleen mooi zijn. De website moet snel
             laden, vertrouwen wekken, logisch opgebouwd zijn en bezoekers helpen
-            om contact op te nemen of een aanvraag te doen.
+            om contact op te nemen of een aanvraag te doen. Bekijk daarom ook
+            onze{" "}
+            <a
+              href="/portfolio-websites"
+              className="text-blue-400 underline-offset-4 hover:underline"
+            >
+              portfolio websites
+            </a>{" "}
+            om te zien hoe dit er in de praktijk uitziet.
           </p>
         </div>
 
@@ -233,7 +285,14 @@ export default function KostenWebsiteLatenMakenPage() {
               <p className="mt-6 max-w-2xl text-base leading-8 text-white/60">
                 Kies een pakket, voeg extra opties toe en bekijk meteen wat jouw
                 website ongeveer gaat kosten. Daarna nemen we persoonlijk
-                contact op om jouw wensen door te spreken.
+                contact op om jouw wensen door te spreken. Start direct via de{" "}
+                <a
+                  href="/website-builder"
+                  className="text-white underline decoration-blue-300/50 underline-offset-4 hover:text-blue-200"
+                >
+                  offerte builder
+                </a>
+                .
               </p>
             </div>
 
@@ -277,6 +336,36 @@ export default function KostenWebsiteLatenMakenPage() {
               </p>
             </details>
           ))}
+        </div>
+      </section>
+
+      <section className="relative z-10 mx-auto max-w-7xl px-6 py-28">
+        <div className="rounded-[2.5rem] border border-white/10 bg-white/[0.03] p-8 backdrop-blur-xl md:p-10">
+          <p className="mb-4 text-sm font-medium uppercase tracking-[0.3em] text-blue-400">
+            Gerelateerde pagina’s
+          </p>
+
+          <h2 className="max-w-3xl text-3xl font-semibold tracking-[-0.04em] md:text-5xl">
+            Verder oriënteren voordat je jouw website laat maken?
+          </h2>
+
+          <div className="mt-8 grid gap-4 md:grid-cols-2">
+            {relatedPages.map((page) => (
+              <a
+                key={page.href}
+                href={page.href}
+                className="rounded-[1.5rem] border border-white/10 bg-black/25 p-5 transition hover:border-blue-400/25 hover:bg-blue-400/[0.04]"
+              >
+                <h3 className="text-lg font-semibold tracking-[-0.02em]">
+                  {page.title}
+                </h3>
+
+                <p className="mt-3 text-sm leading-7 text-white/55">
+                  {page.text}
+                </p>
+              </a>
+            ))}
+          </div>
         </div>
       </section>
     </main>

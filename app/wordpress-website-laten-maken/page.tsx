@@ -54,6 +54,29 @@ const reasons = [
   },
 ];
 
+const relatedPages = [
+  {
+    title: "Website laten maken",
+    href: "/website-laten-maken",
+    text: "Bekijk hoe YousWeb professionele websites bouwt met premium uitstraling en conversiegerichte structuur.",
+  },
+  {
+    title: "Kosten website laten maken",
+    href: "/kosten-website-laten-maken",
+    text: "Lees welke factoren invloed hebben op de prijs van een professionele website.",
+  },
+  {
+    title: "Website builder",
+    href: "/website-builder",
+    text: "Stel jouw website samen en ontvang direct een duidelijke prijsindicatie.",
+  },
+  {
+    title: "Portfolio websites",
+    href: "/portfolio-websites",
+    text: "Bekijk echte website voorbeelden met premium design, sterke UX en moderne uitstraling.",
+  },
+];
+
 const faqs = [
   {
     question: "Waarom kiezen voor WordPress?",
@@ -109,7 +132,15 @@ export default function WordPressWebsiteLatenMakenPage() {
           <p className="mt-8 max-w-2xl text-base leading-8 text-white/60 md:text-lg">
             Een WordPress website combineert flexibiliteit, gebruiksgemak en
             schaalbaarheid. Wij bouwen moderne websites met premium design,
-            sterke structuur en een SEO-basis die klaar is voor groei.
+            sterke structuur en een SEO-basis die klaar is voor groei. Wil je
+            eerst breder kijken naar een{" "}
+            <a
+              href="/website-laten-maken"
+              className="text-blue-400 underline-offset-4 hover:underline"
+            >
+              professionele website laten maken
+            </a>
+            ? Bekijk dan ook onze hoofdservicepagina.
           </p>
 
           <div className="mt-10 flex flex-col gap-4 sm:flex-row">
@@ -143,7 +174,15 @@ export default function WordPressWebsiteLatenMakenPage() {
           <p className="mt-8 max-w-2xl text-base leading-8 text-white/60 md:text-lg">
             WordPress wordt gebruikt door miljoenen bedrijven en organisaties.
             Het systeem is flexibel, schaalbaar en geschikt voor vrijwel iedere
-            ondernemer die online professioneel zichtbaar wil zijn.
+            ondernemer die online professioneel zichtbaar wil zijn. Benieuwd
+            welke investering daarbij past? Bekijk dan ook de{" "}
+            <a
+              href="/kosten-website-laten-maken"
+              className="text-blue-400 underline-offset-4 hover:underline"
+            >
+              kosten van een website laten maken
+            </a>
+            .
           </p>
         </div>
 
@@ -174,6 +213,19 @@ export default function WordPressWebsiteLatenMakenPage() {
           <h2 className="text-4xl font-semibold tracking-[-0.04em] md:text-6xl">
             Meer dan alleen een mooie website.
           </h2>
+
+          <p className="mt-7 max-w-2xl text-base leading-8 text-white/60 md:text-lg">
+            Een goede WordPress website moet vertrouwen wekken, snel laden en
+            bezoekers richting contact sturen. Bekijk onze{" "}
+            <a
+              href="/portfolio-websites"
+              className="text-blue-400 underline-offset-4 hover:underline"
+            >
+              portfolio websites
+            </a>{" "}
+            om te zien hoe premium design, structuur en gebruikerservaring
+            samenkomen.
+          </p>
         </div>
 
         <div className="grid gap-6 lg:grid-cols-3">
@@ -208,7 +260,14 @@ export default function WordPressWebsiteLatenMakenPage() {
 
               <p className="mt-6 max-w-2xl text-base leading-8 text-white/60">
                 Kies een pakket, voeg extra opties toe en ontvang direct een
-                duidelijke prijsindicatie voor jouw nieuwe website.
+                duidelijke prijsindicatie voor jouw nieuwe website. Start via de{" "}
+                <a
+                  href="/website-builder"
+                  className="text-white underline decoration-blue-300/50 underline-offset-4 hover:text-blue-200"
+                >
+                  offerte builder
+                </a>{" "}
+                en wij nemen persoonlijk contact met je op.
               </p>
             </div>
 
@@ -252,6 +311,36 @@ export default function WordPressWebsiteLatenMakenPage() {
               </p>
             </details>
           ))}
+        </div>
+      </section>
+
+      <section className="relative z-10 mx-auto max-w-7xl px-6 py-28">
+        <div className="rounded-[2.5rem] border border-white/10 bg-white/[0.03] p-8 backdrop-blur-xl md:p-10">
+          <p className="mb-4 text-sm font-medium uppercase tracking-[0.3em] text-blue-400">
+            Gerelateerde pagina’s
+          </p>
+
+          <h2 className="max-w-3xl text-3xl font-semibold tracking-[-0.04em] md:text-5xl">
+            Verder oriënteren voordat je een WordPress website laat maken?
+          </h2>
+
+          <div className="mt-8 grid gap-4 md:grid-cols-2">
+            {relatedPages.map((page) => (
+              <a
+                key={page.href}
+                href={page.href}
+                className="rounded-[1.5rem] border border-white/10 bg-black/25 p-5 transition hover:border-blue-400/25 hover:bg-blue-400/[0.04]"
+              >
+                <h3 className="text-lg font-semibold tracking-[-0.02em]">
+                  {page.title}
+                </h3>
+
+                <p className="mt-3 text-sm leading-7 text-white/55">
+                  {page.text}
+                </p>
+              </a>
+            ))}
+          </div>
         </div>
       </section>
     </main>

@@ -48,6 +48,29 @@ const examples = [
   "Creatieve ondernemer",
 ];
 
+const relatedPages = [
+  {
+    title: "Website laten maken",
+    href: "/website-laten-maken",
+    text: "Bekijk de hoofdservicepagina voor professionele websites met premium design en conversiegerichte opbouw.",
+  },
+  {
+    title: "Kosten website laten maken",
+    href: "/kosten-website-laten-maken",
+    text: "Lees wat invloed heeft op de prijs van een website en welke pakketten mogelijk zijn.",
+  },
+  {
+    title: "WordPress website laten maken",
+    href: "/wordpress-website-laten-maken",
+    text: "Voor zzp’ers die een gebruiksvriendelijke WordPress website willen laten bouwen.",
+  },
+  {
+    title: "Portfolio websites",
+    href: "/portfolio-websites",
+    text: "Bekijk echte voorbeelden van websites die we hebben gebouwd voor ondernemers.",
+  },
+];
+
 const faqs = [
   {
     question: "Wat kost een website laten maken voor een zzp'er?",
@@ -104,7 +127,15 @@ export default function WebsiteLatenMakenZzpPage() {
             Als zzp&apos;er heb je een website nodig die vertrouwen wekt,
             duidelijk laat zien wat je aanbiedt en bezoekers helpt om contact op
             te nemen. YousWeb bouwt moderne websites met premium design, sterke
-            SEO-basis en een conversiegerichte structuur.
+            SEO-basis en een conversiegerichte structuur. Wil je breder bekijken
+            hoe wij een{" "}
+            <a
+              href="/website-laten-maken"
+              className="text-blue-400 underline-offset-4 hover:underline"
+            >
+              professionele website laten maken
+            </a>
+            ? Bekijk dan ook onze hoofdservicepagina.
           </p>
 
           <div className="mt-10 flex flex-col gap-4 sm:flex-row">
@@ -138,7 +169,15 @@ export default function WebsiteLatenMakenZzpPage() {
           <p className="mt-8 max-w-2xl text-base leading-8 text-white/60 md:text-lg">
             Potentiële klanten willen snel begrijpen wie je bent, wat je doet en
             waarom jij betrouwbaar bent. Een professionele website helpt je om
-            sterker over te komen en meer aanvragen te ontvangen.
+            sterker over te komen en meer aanvragen te ontvangen. Bekijk ook
+            onze{" "}
+            <a
+              href="/portfolio-websites"
+              className="text-blue-400 underline-offset-4 hover:underline"
+            >
+              portfolio websites
+            </a>{" "}
+            voor echte voorbeelden van websites met premium uitstraling.
           </p>
         </div>
 
@@ -170,6 +209,19 @@ export default function WebsiteLatenMakenZzpPage() {
             Voor zzp&apos;ers en kleine ondernemers die professioneel zichtbaar
             willen zijn.
           </h2>
+
+          <p className="mt-7 max-w-2xl text-base leading-8 text-white/60 md:text-lg">
+            Of je nu coach, therapeut, consultant, freelancer of dienstverlener
+            bent: je website moet duidelijk maken waarom klanten voor jou moeten
+            kiezen. Wil je vooraf weten welke investering past? Bekijk dan de{" "}
+            <a
+              href="/kosten-website-laten-maken"
+              className="text-blue-400 underline-offset-4 hover:underline"
+            >
+              kosten van een website laten maken
+            </a>
+            .
+          </p>
         </div>
 
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -181,6 +233,46 @@ export default function WebsiteLatenMakenZzpPage() {
               {item}
             </div>
           ))}
+        </div>
+      </section>
+
+      <section className="relative z-10 mx-auto grid max-w-7xl gap-12 px-6 py-28 lg:grid-cols-[0.9fr_1.1fr]">
+        <div>
+          <p className="mb-4 text-sm font-medium uppercase tracking-[0.3em] text-blue-400">
+            WordPress of maatwerk structuur?
+          </p>
+
+          <h2 className="text-4xl font-semibold tracking-[-0.04em] md:text-6xl">
+            Kies een website die past bij hoe jij werkt.
+          </h2>
+
+          <p className="mt-8 max-w-2xl text-base leading-8 text-white/60 md:text-lg">
+            Sommige zzp&apos;ers willen later makkelijk zelf teksten of
+            afbeeldingen aanpassen. Dan kan een{" "}
+            <a
+              href="/wordpress-website-laten-maken"
+              className="text-blue-400 underline-offset-4 hover:underline"
+            >
+              WordPress website laten maken
+            </a>{" "}
+            interessant zijn. Andere ondernemers kiezen liever voor een
+            snelle, strak opgebouwde website met focus op uitstraling,
+            performance en conversie.
+          </p>
+        </div>
+
+        <div className="rounded-[2rem] border border-white/10 bg-white/[0.03] p-7 backdrop-blur-xl">
+          <p className="text-sm text-blue-300/70">Advies op basis van jouw doel</p>
+
+          <h3 className="mt-3 text-2xl font-semibold">
+            Eerst helderheid, daarna bouwen.
+          </h3>
+
+          <p className="mt-4 text-sm leading-7 text-white/55">
+            We kijken naar jouw doelgroep, diensten, gewenste uitstraling en
+            manier van werken. Zo bouwen we geen standaard website, maar een
+            online basis die past bij jouw bedrijf.
+          </p>
         </div>
       </section>
 
@@ -199,7 +291,14 @@ export default function WebsiteLatenMakenZzpPage() {
               <p className="mt-6 max-w-2xl text-base leading-8 text-white/60">
                 Kies een pakket, voeg extra opties toe en bekijk meteen wat jouw
                 website ongeveer gaat kosten. Daarna nemen we persoonlijk
-                contact op om jouw project te bespreken.
+                contact op om jouw project te bespreken via onze{" "}
+                <a
+                  href="/website-builder"
+                  className="text-white underline decoration-blue-300/50 underline-offset-4 hover:text-blue-200"
+                >
+                  offerte builder
+                </a>
+                .
               </p>
             </div>
 
@@ -243,6 +342,36 @@ export default function WebsiteLatenMakenZzpPage() {
               </p>
             </details>
           ))}
+        </div>
+      </section>
+
+      <section className="relative z-10 mx-auto max-w-7xl px-6 py-28">
+        <div className="rounded-[2.5rem] border border-white/10 bg-white/[0.03] p-8 backdrop-blur-xl md:p-10">
+          <p className="mb-4 text-sm font-medium uppercase tracking-[0.3em] text-blue-400">
+            Gerelateerde pagina’s
+          </p>
+
+          <h2 className="max-w-3xl text-3xl font-semibold tracking-[-0.04em] md:text-5xl">
+            Verder oriënteren als zzp&apos;er?
+          </h2>
+
+          <div className="mt-8 grid gap-4 md:grid-cols-2">
+            {relatedPages.map((page) => (
+              <a
+                key={page.href}
+                href={page.href}
+                className="rounded-[1.5rem] border border-white/10 bg-black/25 p-5 transition hover:border-blue-400/25 hover:bg-blue-400/[0.04]"
+              >
+                <h3 className="text-lg font-semibold tracking-[-0.02em]">
+                  {page.title}
+                </h3>
+
+                <p className="mt-3 text-sm leading-7 text-white/55">
+                  {page.text}
+                </p>
+              </a>
+            ))}
+          </div>
         </div>
       </section>
     </main>
