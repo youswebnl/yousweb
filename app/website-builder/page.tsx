@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useMemo, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 
 type WebsitePackage = {
@@ -90,6 +90,7 @@ const extras: ExtraOption[] = [
 const steps = ["Pakket", "Extra’s", "Prijs", "Gegevens", "Verzenden"];
 
 export default function WebsiteBuilderPage() {
+  const builderTopRef = useRef<HTMLDivElement | null>(null);
   const [currentStep, setCurrentStep] = useState(0);
   const [submitted, setSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -106,6 +107,14 @@ export default function WebsiteBuilderPage() {
     telefoon: "",
     wensen: "",
   });
+
+const scrollToBuilderTop = () => {
+  builderTopRef.current?.scrollIntoView({
+    behavior: "smooth",
+    block: "start",
+  });
+};
+
 
   const updateFormData = (field: string, value: string) => {
     setFormData((current) => ({
@@ -176,15 +185,20 @@ export default function WebsiteBuilderPage() {
     );
   };
 
-  const nextStep = () => {
-    if (currentStep === 3 && !isContactStepValid) {
-      setShowContactErrors(true);
-      return;
-    }
+ const nextStep = () => {
+  if (currentStep === 3 && !isContactStepValid) {
+    setShowContactErrors(true);
+    return;
+  }
 
-    setShowContactErrors(false);
-    setCurrentStep((step) => Math.min(step + 1, steps.length - 1));
-  };
+  setShowContactErrors(false);
+
+  setCurrentStep((step) => Math.min(step + 1, steps.length - 1));
+
+  window.setTimeout(() => {
+    scrollToBuilderTop();
+  }, 80);
+};
 
   const previousStep = () => setCurrentStep((step) => Math.max(step - 1, 0));
 
@@ -275,6 +289,7 @@ export default function WebsiteBuilderPage() {
       </nav>
 
       <section className="mx-auto max-w-7xl px-6 py-12 md:py-16">
+        <div ref={builderTopRef} />
         <div className="mb-10 max-w-4xl md:mb-12">
           <p className="mb-4 text-sm font-medium uppercase tracking-[0.3em] text-blue-400">
             Offerte builder
@@ -600,12 +615,17 @@ export default function WebsiteBuilderPage() {
               </motion.div>
             </AnimatePresence>
 
-            <div className="mt-10 flex justify-between gap-4">
+          <div className="mt-10 flex justify-between gap-4">
   <button
     type="button"
-    onClick={previousStep}
-    disabled={currentStep === 0}
-    className="rounded-full border border-white/15 px-6 py-4 text-sm font-semibold text-white transition hover:bg-white/10 disabled:cursor-not-allowed disabled:opacity-30"
+    onClick={() => {
+      if (currentStep === 0) return;
+      previousStep();
+    }}
+    aria-disabled={currentStep === 0}
+    className={`rounded-full border border-white/15 px-6 py-4 text-sm font-semibold text-white transition hover:bg-white/10 ${
+      currentStep === 0 ? "cursor-not-allowed opacity-30" : ""
+    }`}
   >
     Terug
   </button>
