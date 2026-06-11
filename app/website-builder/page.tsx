@@ -274,8 +274,8 @@ export default function WebsiteBuilderPage() {
         </a>
       </nav>
 
-      <section className="mx-auto max-w-7xl px-6 py-16">
-        <div className="mb-12 max-w-4xl">
+      <section className="mx-auto max-w-7xl px-6 py-12 md:py-16">
+        <div className="mb-10 max-w-4xl md:mb-12">
           <p className="mb-4 text-sm font-medium uppercase tracking-[0.3em] text-blue-400">
             Offerte builder
           </p>
@@ -299,7 +299,14 @@ export default function WebsiteBuilderPage() {
             />
           </div>
 
-          <div className="grid gap-3 md:grid-cols-5">
+          <div className="md:hidden">
+            <div className="rounded-2xl border border-blue-400/50 bg-blue-400/[0.08] px-4 py-4 text-left text-sm text-white shadow-[0_0_30px_rgba(59,130,246,0.10)]">
+              <p className="text-xs">Stap 0{currentStep + 1}</p>
+              <p className="mt-1 font-medium">{steps[currentStep]}</p>
+            </div>
+          </div>
+
+          <div className="hidden gap-3 md:grid md:grid-cols-5">
             {steps.map((step, index) => (
               <div
                 key={step}
@@ -355,13 +362,11 @@ export default function WebsiteBuilderPage() {
                                 }),
                               );
                             }}
-                            className={`rounded-[2rem] border p-6 text-left transition hover:scale-[1.02] ${
-                              isSelected
-                                ? "border-blue-400 bg-blue-400/[0.12] shadow-[0_0_70px_rgba(59,130,246,0.18)]"
-                                : pack.featured
-                                  ? "border-blue-400/40 bg-blue-400/[0.08]"
-                                  : "border-white/10 bg-black/25 hover:border-white/20"
-                            }`}
+                          className={`rounded-[2rem] border p-6 text-left transition hover:scale-[1.02] ${
+  isSelected
+    ? "border-blue-400 bg-blue-400/[0.12] shadow-[0_0_70px_rgba(59,130,246,0.18)]"
+    : "border-white/10 bg-black/25 hover:border-white/20"
+}`}
                           >
                             {pack.featured && (
                               <div className="mb-4 inline-flex rounded-full border border-blue-400/30 bg-blue-400/10 px-3 py-1 text-xs text-blue-200">
@@ -453,36 +458,67 @@ export default function WebsiteBuilderPage() {
                   </div>
                 )}
 
-                {currentStep === 2 && (
-                  <div>
-                    <h2 className="text-3xl font-semibold tracking-[-0.03em]">
-                      03. Bekijk jouw prijsindicatie
-                    </h2>
+               {currentStep === 2 && (
+  <div>
+    <h2 className="text-3xl font-semibold tracking-[-0.03em]">
+      03. Bekijk jouw prijsindicatie
+    </h2>
 
-                    <div className="mt-7 rounded-[2rem] border border-blue-400/30 bg-blue-400/[0.08] p-8">
-                      <p className="text-sm uppercase tracking-[0.25em] text-blue-300">
-                        Eenmalig project vanaf
-                      </p>
+    <div className="mt-7 rounded-[2rem] border border-white/10 bg-black/25 p-6 md:border-blue-400/30 md:bg-blue-400/[0.08] md:p-8">
+      <p className="text-sm uppercase tracking-[0.25em] text-blue-300">
+        Eenmalig project vanaf
+      </p>
 
-                      <p className="mt-4 text-6xl font-semibold tracking-[-0.05em]">
-                        €{totalPrice.toLocaleString("nl-NL")}
-                      </p>
+      <p className="mt-4 text-5xl font-semibold tracking-[-0.05em] md:text-6xl">
+        €{totalPrice.toLocaleString("nl-NL")}
+      </p>
 
-                      {monthlyExtrasTotal > 0 && (
-                        <p className="mt-4 text-lg font-semibold text-blue-200">
-                          + vanaf €{monthlyExtrasTotal.toLocaleString("nl-NL")}{" "}
-                          p/m voor maandelijkse opties
-                        </p>
-                      )}
+      {monthlyExtrasTotal > 0 && (
+        <p className="mt-4 text-base font-semibold text-blue-200 md:text-lg">
+          + vanaf €{monthlyExtrasTotal.toLocaleString("nl-NL")} p/m voor
+          maandelijkse opties
+        </p>
+      )}
 
-                      <p className="mt-6 max-w-2xl text-base leading-8 text-white/60">
-                        Dit is een prijsindicatie. Na jouw aanvraag bespreken we
-                        jouw wensen persoonlijk en bevestigen we de definitieve
-                        prijs.
-                      </p>
-                    </div>
-                  </div>
-                )}
+      <p className="mt-6 max-w-2xl text-base leading-8 text-white/60">
+        Dit is een prijsindicatie. Na jouw aanvraag bespreken we jouw wensen
+        persoonlijk en bevestigen we de definitieve prijs.
+      </p>
+
+      <div className="mt-7 grid gap-3 md:hidden">
+        {[
+          "Persoonlijk contact binnen 24 uur",
+          "Restbetaling vóór livegang",
+          "Eerst goedkeuring, daarna publicatie",
+        ].map((item) => (
+          <div
+            key={item}
+            className="flex items-start gap-3 rounded-2xl border border-white/10 bg-white/[0.03] px-4 py-3"
+          >
+            <span className="mt-1 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-blue-400/15 text-xs font-bold text-blue-300">
+              ✓
+            </span>
+
+            <span className="text-sm leading-6 text-white/70">{item}</span>
+          </div>
+        ))}
+      </div>
+
+      <div className="mt-7 rounded-3xl border border-white/10 bg-white/[0.03] p-5 md:hidden">
+        <p className="text-sm text-white/40">Betaling</p>
+
+        <p className="mt-2 text-lg font-semibold text-white">
+          50% aanbetaling
+        </p>
+
+        <p className="mt-3 text-sm leading-6 text-white/50">
+          Na akkoord op de definitieve prijs start het project met een
+          aanbetaling van 50%.
+        </p>
+      </div>
+    </div>
+  </div>
+)}
 
                 {currentStep === 3 && (
                   <div>
@@ -565,26 +601,32 @@ export default function WebsiteBuilderPage() {
             </AnimatePresence>
 
             <div className="mt-10 flex justify-between gap-4">
-              <button
-                onClick={previousStep}
-                disabled={currentStep === 0}
-                className="rounded-full border border-white/15 px-6 py-4 text-sm font-semibold text-white transition hover:bg-white/10 disabled:cursor-not-allowed disabled:opacity-30"
-              >
-                Terug
-              </button>
+  <button
+    type="button"
+    onClick={previousStep}
+    disabled={currentStep === 0}
+    className="rounded-full border border-white/15 px-6 py-4 text-sm font-semibold text-white transition hover:bg-white/10 disabled:cursor-not-allowed disabled:opacity-30"
+  >
+    Terug
+  </button>
 
-              {currentStep < steps.length - 1 && (
-                <button
-                  onClick={nextStep}
-                  className="rounded-full bg-white px-6 py-4 text-sm font-semibold text-black transition hover:scale-[1.03]"
-                >
-                  Volgende stap
-                </button>
-              )}
-            </div>
+  {currentStep < steps.length - 1 && (
+    <button
+      type="button"
+      onClick={nextStep}
+      className="rounded-full bg-white px-6 py-4 text-sm font-semibold text-black transition hover:scale-[1.03]"
+    >
+      Volgende stap
+    </button>
+  )}
+</div>
           </motion.div>
 
-          <aside className="h-fit rounded-[2rem] border border-blue-400/30 bg-blue-400/[0.07] p-6 backdrop-blur-xl lg:sticky lg:top-6">
+          <aside
+            className={`h-fit rounded-[2rem] border border-blue-400/30 bg-blue-400/[0.07] p-6 backdrop-blur-xl lg:sticky lg:top-6 ${
+              currentStep === 2 ? "hidden lg:block" : ""
+            }`}
+          >
             <p className="text-sm uppercase tracking-[0.25em] text-blue-300">
               Prijsindicatie
             </p>

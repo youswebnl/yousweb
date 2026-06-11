@@ -40,6 +40,13 @@ const mobileReasons = [
     text: "Je werkt direct samen met de maker van jouw website. Geen tussenpersonen, maar korte lijnen en duidelijke communicatie.",
   },
   {
+
+  title: "Premium kwaliteit",
+  text: "Je krijgt een moderne website met sterke UX, responsive design, snelle structuur en premium uitstraling, zonder de hoge kosten van een groot bureau.",
+  linkText: "Vergelijk pakketten",
+  linkHref: "#prijzen",
+},
+  {
     title: "Gericht op aanvragen",
     text: "Design, teksten, interne links en call-to-actions worden opgebouwd om bezoekers richting vertrouwen en contact te sturen.",
     linkText: "Stel jouw website samen",
@@ -125,7 +132,7 @@ export default function WhyYousWeb() {
           <div
             ref={sliderRef}
             onScroll={handleScroll}
-            className="no-scrollbar flex snap-x snap-mandatory gap-4 overflow-x-auto px-6 pb-3"
+           className="scrollbar-hide flex snap-x snap-mandatory gap-4 overflow-x-auto px-6 pb-3"
           >
             {mobileReasons.map((item, index) => (
               <motion.article

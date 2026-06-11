@@ -21,14 +21,14 @@ export default function CTA() {
   return (
     <section
       id="contact"
-      className="relative z-10 mx-auto max-w-7xl px-6 py-28"
+      className="relative z-10 mx-auto max-w-7xl px-6 py-20 md:py-28"
     >
       <motion.div
         initial={{ opacity: 0, y: 44, scale: 0.98 }}
         whileInView={{ opacity: 1, y: 0, scale: 1 }}
         viewport={{ once: false, amount: 0.25 }}
         transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-        className="group relative overflow-hidden rounded-[2.5rem] border border-white/10 bg-white/[0.03] px-6 py-16 text-center backdrop-blur-xl transition-colors duration-500 hover:border-white/20 hover:bg-white/[0.045] md:px-12 md:py-24"
+        className="group relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.03] px-6 py-14 text-center backdrop-blur-xl transition-colors duration-500 hover:border-white/20 hover:bg-white/[0.045] md:rounded-[2.5rem] md:px-12 md:py-24"
       >
         <motion.div
           animate={{
@@ -36,7 +36,7 @@ export default function CTA() {
             opacity: [0.65, 0.95, 0.65],
           }}
           transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute left-1/2 top-0 h-[420px] w-[420px] -translate-x-1/2 rounded-full bg-blue-500/20 blur-[130px]"
+          className="absolute left-1/2 top-0 h-[320px] w-[320px] -translate-x-1/2 rounded-full bg-blue-500/20 blur-[110px] md:h-[420px] md:w-[420px] md:blur-[130px]"
         />
 
         <motion.div
@@ -50,7 +50,7 @@ export default function CTA() {
             ease: "easeInOut",
             delay: 0.6,
           }}
-          className="absolute bottom-0 right-0 h-[320px] w-[320px] rounded-full bg-purple-500/10 blur-[120px]"
+          className="absolute bottom-0 right-0 h-[240px] w-[240px] rounded-full bg-purple-500/10 blur-[100px] md:h-[320px] md:w-[320px] md:blur-[120px]"
         />
 
         <div className="relative z-10 mx-auto max-w-4xl">
@@ -79,7 +79,7 @@ export default function CTA() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: false, amount: 0.35 }}
             transition={{ duration: 0.85, delay: 0.22, ease: [0.16, 1, 0.3, 1] }}
-            className="mx-auto mt-7 max-w-2xl text-base leading-7 text-white/60 md:text-lg"
+            className="mx-auto mt-6 max-w-2xl text-base leading-7 text-white/60 md:mt-7 md:text-lg"
           >
             Kies jouw pakket, voeg extra opties toe en verzend jouw aanvraag.
             Daarna ontvang je persoonlijk contact over jouw websiteproject.
@@ -90,7 +90,7 @@ export default function CTA() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: false, amount: 0.35 }}
             transition={{ duration: 0.85, delay: 0.34, ease: [0.16, 1, 0.3, 1] }}
-            className="mt-10 flex flex-col justify-center gap-4 sm:flex-row"
+            className="mt-9 flex flex-col justify-center gap-4 sm:flex-row md:mt-10"
           >
             <a
               href="/website-builder"
@@ -107,7 +107,7 @@ export default function CTA() {
             </a>
           </motion.div>
 
-          <div className="mt-12 grid gap-4 text-left md:grid-cols-3">
+          <div className="mt-12 hidden gap-4 text-left md:grid md:grid-cols-3">
             {items.map((item, index) => (
               <motion.div
                 key={item.label}
