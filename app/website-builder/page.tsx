@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useMemo, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 
@@ -410,7 +411,19 @@ const scrollToBuilderTop = () => {
                           </button>
                         );
                       })}
-                    </div>
+                                        </div>
+
+                    <p className="mt-8 max-w-2xl text-sm leading-7 text-white/50">
+                      Twijfel je tussen Growth en Agency Level?{" "}
+                      <Link
+                        href="/seo-landingspaginas"
+                        className="font-medium text-blue-300 underline underline-offset-4 transition hover:text-blue-200"
+                      >
+                        Ontdek hoe SEO-landingspagina’s helpen bij betere vindbaarheid in Google
+                      </Link>
+                      .
+                    </p>
+
                   </div>
                 )}
 

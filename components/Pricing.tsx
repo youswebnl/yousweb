@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { motion } from "framer-motion";
 
 const plans = [
@@ -205,7 +206,25 @@ export default function Pricing() {
             </div>
           </motion.article>
         ))}
-      </div>
+           </div>
+
+      <motion.p
+        initial={{ opacity: 0, y: 18 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: false, amount: 0.35 }}
+        transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+        className="mx-auto mt-10 max-w-2xl text-center text-sm leading-7 text-white/50"
+      >
+        Twijfel je tussen Growth en Agency Level?{" "}
+        <Link
+          href="/seo-landingspaginas"
+          className="font-medium text-blue-300 underline underline-offset-4 transition hover:text-blue-200"
+        >
+          Ontdek hoe SEO-landingspagina’s helpen bij betere vindbaarheid in Google
+        </Link>
+        .
+      </motion.p>
+
     </section>
   );
 }
