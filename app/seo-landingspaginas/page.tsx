@@ -174,11 +174,17 @@ export default function SeoLandingspaginasPage() {
               voor deze doelgroep of in deze regio.
             </p>
 
-            <p>
-              Daarom gebruiken sterke websites vaak meerdere gerichte pagina’s.
-              Niet om de website groter te maken, maar om meer zoekkansen te
-              creëren.
-            </p>
+           <p>
+  Daarom gebruiken sterke websites vaak meerdere gerichte pagina’s.
+  Niet om de website groter te maken, maar om{" "}
+  <Link
+    href="/website-builder"
+    className="font-medium text-blue-300 underline underline-offset-4 transition hover:text-blue-200"
+  >
+    meer zoekkansen te creëren
+  </Link>
+  .
+</p>
           </div>
         </div>
       </section>
@@ -225,6 +231,51 @@ export default function SeoLandingspaginasPage() {
         </div>
       </section>
 
+
+<section className="mx-auto max-w-7xl px-6 pb-24">
+  <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr]">
+    <div>
+      <p className="mb-4 text-sm font-medium uppercase tracking-[0.3em] text-blue-400">
+        Growth versus Agency
+      </p>
+
+      <h2 className="text-4xl font-semibold tracking-[-0.04em] md:text-6xl">
+        Waarom kiezen sommige bedrijven voor 5 SEO-landingspagina’s?
+      </h2>
+    </div>
+
+    <div className="space-y-5 text-base leading-8 text-white/60">
+      <p>
+        Niet ieder bedrijf heeft dezelfde SEO-behoefte. Een coach die zich
+        richt op één dienst en één regio heeft vaak genoeg aan 2 sterke
+        SEO-landingspagina’s.
+      </p>
+
+      <p>
+        Maar bedrijven met meerdere diensten, regio’s of doelgroepen hebben
+        vaak meer pagina’s nodig om zichtbaar te worden op relevante
+        zoekopdrachten.
+      </p>
+
+      <p>
+        Denk bijvoorbeeld aan een dakdekker die gevonden wil worden op
+        “Dakdekker Amsterdam”, “Dakreparatie Amsterdam”,
+        “Dakdekker Haarlem”, “Dakinspectie Amsterdam” en
+        “Daklekkage Amsterdam”. Elke pagina creëert een extra kans om
+        gevonden te worden.
+      </p>
+
+      <p>
+        Daarom is Growth ideaal voor ondernemers die gericht willen groeien.
+        Agency Level is sterker voor bedrijven die meerdere markten tegelijk
+        willen bereiken en hun online zichtbaarheid serieus willen uitbreiden.
+      </p>
+    </div>
+  </div>
+</section>
+
+
+
       <section className="mx-auto max-w-7xl px-6 pb-24">
         <div className="rounded-[2.5rem] border border-blue-400/30 bg-blue-400/[0.07] p-8 backdrop-blur-xl md:p-12">
           <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr]">
@@ -254,10 +305,19 @@ export default function SeoLandingspaginasPage() {
               </p>
 
               <p>
-                Daarom is Growth geschikt wanneer je gericht wilt groeien, en
-                Agency Level sterker wanneer je meerdere markten tegelijk wilt
-                aanvallen.
-              </p>
+  Daarom is Growth vaak ideaal voor ondernemers die actief klanten
+  willen aantrekken in één of twee regio’s. Agency Level is juist
+  sterker wanneer je meerdere diensten, steden of doelgroepen wilt
+  bereiken en meer kansen wilt creëren om gevonden te worden in Google.
+  Bekijk welk{" "}
+  <Link
+    href="/website-builder"
+    className="font-medium text-blue-300 underline underline-offset-4 transition hover:text-blue-200"
+  >
+    websitepakket het beste past bij jouw groeidoel
+  </Link>
+  .
+</p>
             </div>
           </div>
         </div>
