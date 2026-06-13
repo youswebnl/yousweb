@@ -52,5 +52,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: 0.8,
     },
+    {
+  url: `${baseUrl}/seo-landingspaginas`,
+  lastModified: new Date(),
+  changeFrequency: "monthly",
+  priority: 0.75,
+},
   ];
 }
