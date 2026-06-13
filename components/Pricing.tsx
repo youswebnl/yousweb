@@ -3,48 +3,88 @@
 import { motion } from "framer-motion";
 
 const plans = [
-  {
-    name: "Starter",
-    price: "Vanaf €749",
-    tag: "Voor een sterke eerste indruk en professionele online aanwezigheid.",
-    direction: "left",
-    features: [
-      "Responsive website",
-      "Premium basisdesign",
-      "Basis SEO-structuur",
-      "Professionele aanvraagflow",
-      "Snelle laadtijd",
-    ],
-  },
-  {
-    name: "Growth",
-    price: "Vanaf €1.250",
-    tag: "Meest gekozen voor ondernemers die willen groeien.",
-    featured: true,
-    direction: "bottom",
-    features: [
-      "Alles uit Starter",
-      "Sterkere UX/UI structuur",
-      "Portfolio of diensten secties",
-      "Conversiegerichte opbouw",
-      "Betere SEO basis",
-    ],
-  },
-  {
-    name: "Agency Level",
-    price: "Vanaf €2.250",
-    tag: "Voor ondernemers die een merk willen bouwen dat vertrouwen uitstraalt.",
-    direction: "right",
-    features: [
-      "Custom high-end design",
-      "Advanced responsive experience",
-      "SEO-first pagina structuur",
-      "Premium animations",
-      "Strategische conversieflow",
-    ],
-  },
-];
 
+  {
+
+    name: "Starter",
+
+    price: "Vanaf €749",
+
+    tag: "Voor starters en zzp’ers die professioneel online zichtbaar willen zijn met een sterke one-page website.",
+
+    direction: "left",
+
+    features: [
+
+      "One-page website",
+
+      "Premium basisdesign",
+
+      "Responsive voor mobiel en tablet",
+
+      "Basis SEO-structuur",
+
+      "Professionele aanvraagflow",
+
+    ],
+
+  },
+
+  {
+
+    name: "Growth",
+
+    price: "Vanaf €1.250",
+
+    tag: "Meest gekozen voor ondernemers die actief klanten willen aantrekken via Google.",
+
+    featured: true,
+
+    direction: "bottom",
+
+    features: [
+
+      "Alles uit Starter",
+
+      "Website tot 3 pagina’s",
+
+      "Tot 2 SEO-landingspagina’s",
+
+      "Conversiegerichte opbouw",
+
+      "Sterkere UX/UI structuur",
+
+    ],
+
+  },
+
+  {
+
+    name: "Agency Level",
+
+    price: "Vanaf €2.250",
+
+    tag: "Voor bedrijven die serieus willen investeren in online groei, vertrouwen en schaalbaarheid.",
+
+    direction: "right",
+
+    features: [
+
+      "Alles uit Growth",
+
+      "Website tot 6 pagina’s",
+
+      "Tot 5 SEO-landingspagina’s",
+
+      "Premium maatwerk uitstraling",
+
+      "Strategische conversieflow",
+
+    ],
+
+  },
+
+];
 function getInitial(direction: string) {
   if (direction === "left") return { opacity: 0, x: -46, y: 18, scale: 0.97 };
   if (direction === "right") return { opacity: 0, x: 46, y: 18, scale: 0.97 };

@@ -12,17 +12,22 @@ const faqs = [
   {
     question: "Is SEO inbegrepen bij de website?",
     answer:
-      "Ja. De basis wordt direct goed opgebouwd met logische headings, snelle laadtijd, nette structuur en interne links. Uitgebreide SEO-landingspagina’s kunnen later worden toegevoegd.",
+      "Ja. De basis wordt direct goed opgebouwd met logische headings, snelle laadtijd, nette structuur en interne links. Bij Growth en Agency Level is er meer ruimte voor SEO-landingspagina’s en lokale vindbaarheid.",
   },
   {
-    question: "Welk pakket past het beste bij mijn bedrijf?",
+    question: "Welk websitepakket past het beste bij mijn bedrijf?",
     answer:
-      "Starter is geschikt voor een sterke eerste indruk, Growth voor ondernemers die willen groeien en Agency Level voor bedrijven die een premium merkervaring willen neerzetten.",
+      "Starter is geschikt voor starters, zzp’ers en ondernemers die professioneel online zichtbaar willen worden met een one-page website. Growth is geschikt voor ondernemers die actief klanten willen aantrekken via Google, met meerdere pagina’s en ruimte voor maximaal 2 SEO-landingspagina’s. Agency Level is geschikt voor bedrijven die serieus willen investeren in online groei, met een uitgebreidere structuur en ruimte voor maximaal 5 SEO-landingspagina’s.",
+  },
+  {
+    question: "Waarom is een website met meerdere pagina’s beter voor SEO?",
+    answer:
+      "Zoekmachines begrijpen een website beter wanneer belangrijke onderwerpen verdeeld zijn over meerdere pagina’s. Een one-page website is sneller en voordeliger, maar biedt minder ruimte om gevonden te worden op verschillende zoektermen. Daarom biedt een website met meerdere pagina’s vaak meer mogelijkheden voor SEO, lokale vindbaarheid en toekomstige groei.",
   },
   {
     question: "Kan mijn website later meegroeien?",
     answer:
-      "Ja. De website wordt schaalbaar opgebouwd, zodat extra pagina’s, cases, video’s, SEO-content en nieuwe functies later toegevoegd kunnen worden.",
+      "Ja. De website wordt schaalbaar opgebouwd, zodat extra pagina’s, cases, video’s, SEO-content, nieuwe functies en extra landingspagina’s later toegevoegd kunnen worden.",
   },
 ];
 

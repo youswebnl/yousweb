@@ -24,20 +24,23 @@ const packages: WebsitePackage[] = [
     name: "Starter",
     price: 749,
     pages: "One-page website",
-    description: "Voor snelle professionele online zichtbaarheid.",
+    description:
+      "Voor starters en zzp’ers die professioneel online zichtbaar willen zijn.",
   },
   {
     name: "Growth",
     price: 1250,
-    pages: "Tot 3 pagina’s",
-    description: "Voor ondernemers die willen groeien met betere structuur.",
+    pages: "Tot 3 pagina’s + 2 SEO-landingspagina’s",
+    description:
+      "Voor ondernemers die actief klanten willen aantrekken via Google.",
     featured: true,
   },
   {
     name: "Agency Level",
     price: 2250,
-    pages: "Tot 6 pagina’s",
-    description: "Voor premium positionering en maximale uitstraling.",
+    pages: "Tot 6 pagina’s + 5 SEO-landingspagina’s",
+    description:
+      "Voor bedrijven die serieus willen investeren in online groei.",
   },
 ];
 
@@ -595,11 +598,34 @@ const scrollToBuilderTop = () => {
                       05. Verzend jouw aanvraag
                     </h2>
 
-                    <p className="mt-5 max-w-2xl text-base leading-8 text-white/60">
-                      Controleer jouw pakket, extra opties en prijsindicatie.
-                      Daarna verzend je jouw aanvraag en nemen we persoonlijk
-                      contact op.
-                    </p>
+                   <p className="mt-5 max-w-2xl text-base leading-8 text-white/60">
+  Jouw aanvraag is bijna klaar. Na verzending nemen we persoonlijk contact op
+  om jouw wensen te bespreken en de definitieve prijs te bevestigen.
+</p>
+
+<div className="mt-7 rounded-3xl border border-white/10 bg-white/[0.03] p-5">
+  <p className="mb-4 text-sm font-medium uppercase tracking-[0.22em] text-blue-300">
+    Wat gebeurt er hierna?
+  </p>
+
+  <div className="grid gap-3">
+    {[
+      "Wij ontvangen jouw aanvraag",
+      "Je krijgt persoonlijk contact",
+      "We bespreken jouw wensen",
+      "Je ontvangt de definitieve offerte",
+      "Na akkoord starten we het project",
+    ].map((item, index) => (
+      <div key={item} className="flex items-start gap-3">
+        <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-blue-400/15 text-xs font-semibold text-blue-300">
+          {index + 1}
+        </span>
+
+        <span className="text-sm leading-6 text-white/65">{item}</span>
+      </div>
+    ))}
+  </div>
+</div>
 
                     <button
                       onClick={submitApplication}
@@ -608,7 +634,7 @@ const scrollToBuilderTop = () => {
                     >
                       {isSubmitting
                         ? "Aanvraag wordt verzonden..."
-                        : "Aanvraag verzenden"}
+                        : "Verstuur mijn aanvraag"}
                     </button>
                   </div>
                 )}
@@ -644,7 +670,7 @@ const scrollToBuilderTop = () => {
 
           <aside
             className={`h-fit rounded-[2rem] border border-blue-400/30 bg-blue-400/[0.07] p-6 backdrop-blur-xl lg:sticky lg:top-6 ${
-              currentStep === 2 ? "hidden lg:block" : ""
+             currentStep === 2 || currentStep === 4 ? "hidden lg:block" : ""
             }`}
           >
             <p className="text-sm uppercase tracking-[0.25em] text-blue-300">
