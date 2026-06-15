@@ -41,8 +41,8 @@ export default function Portfolio() {
         </h2>
 
         <p className="mt-6 text-base leading-7 text-white/55 md:text-lg">
-          Bekijk hoe een websiteproject bij YousWeb verloopt: van pakketkeuze
-          en aanvraag tot persoonlijk contact, ontwikkeling en oplevering.
+          Bekijk hoe een websiteproject bij YousWeb verloopt: van pakketkeuze en
+          aanvraag tot persoonlijk contact, ontwikkeling en oplevering.
         </p>
       </motion.div>
 
@@ -70,12 +70,15 @@ export default function Portfolio() {
         <div className="mt-8 rounded-[2rem] border border-white/15 bg-[#080808] p-3 shadow-2xl">
           <div className="overflow-hidden rounded-[1.5rem] border border-white/10 bg-black">
             <video
-              src={videoSrc}
-              className="h-full w-full object-cover"
-              controls
+              autoPlay
+              muted
+              loop
               playsInline
               preload="metadata"
-            />
+              className="h-full w-full object-contain"
+            >
+              <source src={videoSrc} type="video/mp4" />
+            </video>
           </div>
         </div>
 
@@ -127,12 +130,15 @@ export default function Portfolio() {
           >
             <div className="relative flex h-full min-h-[490px] items-center justify-center overflow-hidden rounded-[1.5rem] border border-white/10 bg-black transition duration-500 group-hover:border-blue-400/20">
               <video
-                src={videoSrc}
-                className="h-full w-full object-cover"
-                controls
+                autoPlay
+                muted
+                loop
                 playsInline
                 preload="metadata"
-              />
+                className="h-full w-full object-contain"
+              >
+                <source src={videoSrc} type="video/mp4" />
+              </video>
             </div>
           </motion.div>
 
