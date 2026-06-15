@@ -42,7 +42,7 @@ const projects = [
     description:
       "Deze website zelf: gebouwd als high-end voorbeeld van premium design, duidelijke pakketten, SEO-structuur en een werkende offerteflow.",
     desktopVideo:
-      "https://cqvozahseaepel7p.public.blob.vercel-storage.com/website-laten-maken-aanvraagproces-yousweb.mp4",
+      "https://cqvozahseaepel7p.public.blob.vercel-storage.com/yousweb-desktop.mp4",
     mobileVideo: "/videos/yousweb-mobile.mp4",
     highlights: [
       "Premium homepage",
