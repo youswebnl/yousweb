@@ -1,6 +1,7 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 
 const desktopFeatures = [
   "Websitepakket kiezen",
@@ -20,6 +21,22 @@ const videoSrc =
   "https://cqvozahseaepel7p.public.blob.vercel-storage.com/website-laten-maken-aanvraagproces-yousweb.mp4";
 
 export default function Portfolio() {
+  const [activeVideo, setActiveVideo] = useState<string | null>(null);
+
+  useEffect(() => {
+    function handleKeyDown(event: KeyboardEvent) {
+      if (event.key === "Escape") {
+        setActiveVideo(null);
+      }
+    }
+
+    window.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, []);
+
   return (
     <section
       id="werk"
@@ -68,7 +85,11 @@ export default function Portfolio() {
         </p>
 
         <div className="mt-8 rounded-[2rem] border border-white/15 bg-[#080808] p-3 shadow-2xl">
-          <div className="overflow-hidden rounded-[1.5rem] border border-white/10 bg-black">
+          <button
+            type="button"
+            onClick={() => setActiveVideo(videoSrc)}
+            className="group/video relative block w-full overflow-hidden rounded-[1.5rem] border border-white/10 bg-black"
+          >
             <video
               autoPlay
               muted
@@ -79,7 +100,13 @@ export default function Portfolio() {
             >
               <source src={videoSrc} type="video/mp4" />
             </video>
-          </div>
+
+            <div className="absolute inset-0 flex items-center justify-center bg-black/0 opacity-0 transition duration-500 group-hover/video:bg-black/35 group-hover/video:opacity-100">
+              <div className="rounded-full border border-white/15 bg-white/10 px-5 py-3 text-sm font-semibold text-white backdrop-blur-xl">
+                Bekijk fullscreen
+              </div>
+            </div>
+          </button>
         </div>
 
         <div className="mt-7">
@@ -112,8 +139,7 @@ export default function Portfolio() {
       </motion.div>
 
       {/* Desktop showcase */}
-      <motion.a
-        href="/portfolio-websites"
+      <motion.div
         initial={{ opacity: 0, y: 44, scale: 0.98 }}
         whileInView={{ opacity: 1, y: 0, scale: 1 }}
         viewport={{ once: false, amount: 0.25 }}
@@ -125,10 +151,18 @@ export default function Portfolio() {
             initial={{ opacity: 0, x: -28 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: false, amount: 0.35 }}
-            transition={{ duration: 0.9, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+            transition={{
+              duration: 0.9,
+              delay: 0.1,
+              ease: [0.16, 1, 0.3, 1],
+            }}
             className="relative min-h-[520px] overflow-hidden rounded-[2rem] border border-white/10 bg-[#0B0B0B] p-4"
           >
-            <div className="relative flex h-full min-h-[490px] items-center justify-center overflow-hidden rounded-[1.5rem] border border-white/10 bg-black transition duration-500 group-hover:border-blue-400/20">
+            <button
+              type="button"
+              onClick={() => setActiveVideo(videoSrc)}
+              className="group/video relative flex h-full min-h-[490px] w-full items-center justify-center overflow-hidden rounded-[1.5rem] border border-white/10 bg-black transition duration-500 hover:border-blue-400/20"
+            >
               <video
                 autoPlay
                 muted
@@ -139,14 +173,24 @@ export default function Portfolio() {
               >
                 <source src={videoSrc} type="video/mp4" />
               </video>
-            </div>
+
+              <div className="absolute inset-0 flex items-center justify-center bg-black/0 opacity-0 transition duration-500 group-hover/video:bg-black/35 group-hover/video:opacity-100">
+                <div className="rounded-full border border-white/15 bg-white/10 px-5 py-3 text-sm font-semibold text-white backdrop-blur-xl">
+                  Bekijk fullscreen
+                </div>
+              </div>
+            </button>
           </motion.div>
 
           <motion.div
             initial={{ opacity: 0, x: 28 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: false, amount: 0.35 }}
-            transition={{ duration: 0.9, delay: 0.18, ease: [0.16, 1, 0.3, 1] }}
+            transition={{
+              duration: 0.9,
+              delay: 0.18,
+              ease: [0.16, 1, 0.3, 1],
+            }}
             className="flex flex-col justify-between gap-6 rounded-[2rem] border border-white/10 bg-black/30 p-6"
           >
             <div>
@@ -193,9 +237,68 @@ export default function Portfolio() {
                 planning en definitieve prijs te bespreken.
               </p>
             </div>
+
+            <div className="grid gap-3">
+              <a
+                href="/website-builder"
+                className="inline-flex w-full items-center justify-center rounded-full bg-white px-6 py-4 text-sm font-semibold text-black transition hover:scale-[1.03] hover:bg-white/90"
+              >
+                Stel jouw website samen
+              </a>
+
+              <a
+                href="/portfolio-websites"
+                className="inline-flex w-full items-center justify-center rounded-full border border-white/15 px-6 py-4 text-sm font-semibold text-white transition hover:scale-[1.03] hover:bg-white hover:text-black"
+              >
+                Bekijk portfolio
+              </a>
+            </div>
           </motion.div>
         </div>
-      </motion.a>
+      </motion.div>
+
+      <AnimatePresence>
+        {activeVideo && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.25 }}
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black/85 p-4 backdrop-blur-xl"
+            onClick={() => setActiveVideo(null)}
+          >
+            <motion.div
+              initial={{ opacity: 0, y: 24 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 24 }}
+              transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+              className="relative w-full max-w-6xl overflow-hidden rounded-[2rem] border border-white/10 bg-[#080808] p-3"
+              onClick={(event) => event.stopPropagation()}
+            >
+              <button
+                type="button"
+                onClick={() => setActiveVideo(null)}
+                className="absolute right-5 top-5 z-10 rounded-full border border-white/15 bg-black/50 px-4 py-2 text-sm font-semibold text-white transition hover:bg-white hover:text-black"
+              >
+                Sluiten
+              </button>
+
+              <div className="aspect-video overflow-hidden rounded-[1.5rem] border border-white/10 bg-black">
+                <video
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  controls
+                  className="h-full w-full object-contain"
+                >
+                  <source src={activeVideo} type="video/mp4" />
+                </video>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 }
