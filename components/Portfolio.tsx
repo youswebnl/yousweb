@@ -3,22 +3,28 @@
 import { motion } from "framer-motion";
 
 const desktopFeatures = [
-  "Premium homepage structuur",
-  "Website pakketten en prijsrichting",
-  "Offerte builder flow",
-  "Contact via WhatsApp en e-mail",
+  "Websitepakket kiezen",
+  "Aanvraag versturen",
+  "Persoonlijk adviesgesprek",
+  "Ontwikkeling & oplevering",
 ];
 
 const mobileSteps = [
-  "Stel jouw website samen",
-  "Verstuur jouw aanvraag",
-  "Persoonlijk contact",
-  "Start van het project",
+  "Websitepakket kiezen",
+  "Aanvraag versturen",
+  "Persoonlijk adviesgesprek",
+  "Ontwikkeling & oplevering",
 ];
+
+const videoSrc =
+  "https://cqvozahseaepel7p.public.blob.vercel-storage.com/website-laten-maken-aanvraagproces-yousweb.mp4";
 
 export default function Portfolio() {
   return (
-    <section id="werk" className="relative z-10 mx-auto max-w-7xl px-6 py-20 lg:py-28">
+    <section
+      id="werk"
+      className="relative z-10 mx-auto max-w-7xl px-6 py-20 lg:py-28"
+    >
       <motion.div
         initial={{ opacity: 0, y: 34 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -27,7 +33,7 @@ export default function Portfolio() {
         className="mb-10 max-w-3xl lg:mb-14"
       >
         <p className="mb-4 text-sm font-medium uppercase tracking-[0.3em] text-blue-400">
-          Flagship case
+          Website laten maken proces
         </p>
 
         <h2 className="text-4xl font-semibold tracking-[-0.04em] md:text-6xl">
@@ -35,9 +41,8 @@ export default function Portfolio() {
         </h2>
 
         <p className="mt-6 text-base leading-7 text-white/55 md:text-lg">
-          Deze website is gebouwd als live voorbeeld van premium design,
-          duidelijke pakketten, een offerte builder en een professionele
-          aanvraagflow.
+          Bekijk hoe een websiteproject bij YousWeb verloopt: van pakketkeuze
+          en aanvraag tot persoonlijk contact, ontwikkeling en oplevering.
         </p>
       </motion.div>
 
@@ -54,41 +59,23 @@ export default function Portfolio() {
         </div>
 
         <h3 className="text-3xl font-semibold tracking-[-0.04em] text-white">
-          Zo werkt jouw aanvraag
+          Hoe werkt een website laten maken bij YousWeb?
         </h3>
 
         <p className="mt-4 text-base leading-7 text-white/55">
-          Bekijk hoe jouw websiteproject van aanvraag tot oplevering verloopt.
+          Bekijk hoe je eenvoudig jouw website samenstelt en een professionele
+          aanvraag verstuurt.
         </p>
 
         <div className="mt-8 rounded-[2rem] border border-white/15 bg-[#080808] p-3 shadow-2xl">
-          <div className="relative flex min-h-[440px] items-center justify-center overflow-hidden rounded-[1.5rem] border border-white/10 bg-white/[0.03] text-center">
-            <motion.div
-              animate={{
-                opacity: [0.65, 1, 0.65],
-                scale: [1, 1.04, 1],
-              }}
-              transition={{
-                duration: 7,
-                repeat: Infinity,
-                ease: "easeInOut",
-              }}
-              className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(59,130,246,0.24),transparent_38%),radial-gradient(circle_at_bottom_right,rgba(139,92,246,0.16),transparent_38%)]"
+          <div className="overflow-hidden rounded-[1.5rem] border border-white/10 bg-black">
+            <video
+              src={videoSrc}
+              className="h-full w-full object-cover"
+              controls
+              playsInline
+              preload="metadata"
             />
-
-            <div className="relative px-6">
-              <p className="text-xs uppercase tracking-[0.3em] text-white/30">
-                Video demo
-              </p>
-
-              <p className="mt-3 text-xl font-semibold text-white/85">
-                Aanvraagflow
-              </p>
-
-              <p className="mt-3 text-sm leading-6 text-white/40">
-                Later: yousweb-aanvraag-demo.mp4
-              </p>
-            </div>
           </div>
         </div>
 
@@ -138,33 +125,14 @@ export default function Portfolio() {
             transition={{ duration: 0.9, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
             className="relative min-h-[520px] overflow-hidden rounded-[2rem] border border-white/10 bg-[#0B0B0B] p-4"
           >
-            <motion.div
-              animate={{
-                opacity: [0.75, 1, 0.75],
-                scale: [1, 1.04, 1],
-              }}
-              transition={{
-                duration: 7,
-                repeat: Infinity,
-                ease: "easeInOut",
-              }}
-              className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(59,130,246,0.28),transparent_35%),radial-gradient(circle_at_bottom_right,rgba(139,92,246,0.18),transparent_35%)]"
-            />
-
-            <div className="relative flex h-full min-h-[490px] items-center justify-center rounded-[1.5rem] border border-white/10 bg-black/45 text-center transition duration-500 group-hover:border-blue-400/20">
-              <div>
-                <p className="text-sm uppercase tracking-[0.25em] text-white/35">
-                  Desktop preview
-                </p>
-
-                <p className="mt-3 text-3xl font-semibold text-white/85">
-                  YousWeb website video
-                </p>
-
-                <p className="mt-4 text-sm text-white/40">
-                  Later: yousweb-desktop-preview.mp4
-                </p>
-              </div>
+            <div className="relative flex h-full min-h-[490px] items-center justify-center overflow-hidden rounded-[1.5rem] border border-white/10 bg-black transition duration-500 group-hover:border-blue-400/20">
+              <video
+                src={videoSrc}
+                className="h-full w-full object-cover"
+                controls
+                playsInline
+                preload="metadata"
+              />
             </div>
           </motion.div>
 
@@ -181,12 +149,12 @@ export default function Portfolio() {
               </div>
 
               <h3 className="text-3xl font-semibold tracking-[-0.03em]">
-                Van eerste bezoek tot aanvraag
+                Hoe werkt een website laten maken bij YousWeb?
               </h3>
 
               <p className="mt-5 text-base leading-7 text-white/55">
-                Ontdek hoe bezoekers door de website navigeren, opties kiezen
-                en contact opnemen.
+                Bekijk hoe je eenvoudig jouw website samenstelt en een
+                professionele aanvraag verstuurt.
               </p>
             </div>
 
@@ -209,29 +177,16 @@ export default function Portfolio() {
               ))}
             </div>
 
-            <motion.div
-              initial={{ opacity: 0, y: 30, scale: 0.96 }}
-              whileInView={{ opacity: 1, y: 0, scale: 1 }}
-              viewport={{ once: false, amount: 0.35 }}
-              transition={{ duration: 0.9, delay: 0.35, ease: [0.16, 1, 0.3, 1] }}
-              className="mx-auto w-full max-w-[210px] rounded-[2rem] border border-white/15 bg-[#080808] p-3 shadow-2xl"
-            >
-              <div className="flex h-[330px] items-center justify-center rounded-[1.5rem] border border-white/10 bg-white/[0.03] text-center">
-                <div>
-                  <p className="text-xs uppercase tracking-[0.25em] text-white/30">
-                    Mobile
-                  </p>
+            <div className="rounded-[2rem] border border-blue-400/20 bg-blue-400/[0.06] p-5">
+              <p className="text-sm font-medium text-blue-200">
+                Van aanvraag naar projectstart
+              </p>
 
-                  <p className="mt-3 text-sm text-white/60">
-                    Responsive preview
-                  </p>
-
-                  <p className="mt-3 px-4 text-xs leading-5 text-white/35">
-                    yousweb-mobile-preview.mp4
-                  </p>
-                </div>
-              </div>
-            </motion.div>
+              <p className="mt-3 text-sm leading-6 text-white/55">
+                Na jouw aanvraag nemen we persoonlijk contact op om jouw wensen,
+                planning en definitieve prijs te bespreken.
+              </p>
+            </div>
           </motion.div>
         </div>
       </motion.a>
