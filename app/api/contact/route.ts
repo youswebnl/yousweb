@@ -18,7 +18,7 @@ export async function POST(request: Request) {
     ) {
       return Response.json(
         { error: "Missing environment variables" },
-        { status: 500 }
+        { status: 500 },
       );
     }
 
@@ -36,13 +36,28 @@ export async function POST(request: Request) {
       pakket,
       paginas,
       extras,
-      prijs,
+      eenmaligePrijsindicatie,
+      maandelijkseOpties,
     } = body;
 
     const extrasText =
       Array.isArray(extras) && extras.length
-        ? extras.join(", ")
+        ? extras
+            .map((extra) => {
+              const priceText =
+                extra.billing === "monthly"
+                  ? `€${extra.price} p/m`
+                  : `€${extra.price}`;
+
+              return `${extra.name} (${priceText})`;
+            })
+            .join(", ")
         : "Geen extra opties";
+
+    const monthlyText =
+      maandelijkseOpties && maandelijkseOpties > 0
+        ? `\nMaandelijkse opties: €${maandelijkseOpties} p/m`
+        : "";
 
     const whatsappMessage = `
 🔥 Nieuwe website aanvraag
@@ -55,7 +70,7 @@ Telefoon: ${telefoon}
 Pakket: ${pakket}
 Pagina's: ${paginas}
 Extra opties: ${extrasText}
-Prijsindicatie: €${prijs}
+Prijsindicatie: €${eenmaligePrijsindicatie}${monthlyText}
 
 Extra wensen:
 ${wensen || "Geen extra wensen ingevuld"}
@@ -78,7 +93,12 @@ ${wensen || "Geen extra wensen ingevuld"}
         <p><strong>Pakket:</strong> ${pakket}</p>
         <p><strong>Pagina's:</strong> ${paginas}</p>
         <p><strong>Extra opties:</strong> ${extrasText}</p>
-        <p><strong>Prijsindicatie:</strong> €${prijs}</p>
+      <p><strong>Prijsindicatie:</strong> €${eenmaligePrijsindicatie}</p>
+<p><strong>Maandelijkse opties:</strong> ${
+        maandelijkseOpties && maandelijkseOpties > 0
+          ? `€${maandelijkseOpties} p/m`
+          : "Geen maandelijkse opties"
+      }</p>
 
         <hr />
 
