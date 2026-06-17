@@ -38,7 +38,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: 0.85,
     },
-
+    {
+      url: `${baseUrl}/nextjs-website-laten-maken`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.85,
+    },
     {
       url: `${baseUrl}/website-builder`,
       lastModified: new Date(),
@@ -53,10 +58,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     },
     {
-  url: `${baseUrl}/seo-landingspaginas`,
-  lastModified: new Date(),
-  changeFrequency: "monthly",
-  priority: 0.75,
-},
+      url: `${baseUrl}/seo-landingspaginas`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.75,
+    },
   ];
 }
