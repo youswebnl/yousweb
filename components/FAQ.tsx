@@ -1,33 +1,78 @@
 "use client";
 
+import Link from "next/link";
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
+
+const linkClass =
+  "font-medium text-blue-300 underline underline-offset-4 transition hover:text-blue-200";
 
 const faqs = [
   {
     question: "Wordt mijn website ook professioneel op mobiel?",
-    answer:
-      "Ja. Elke website wordt responsive gebouwd, zodat desktop, tablet en mobiel allemaal strak, snel en professioneel aanvoelen.",
+    answer: (
+      <>
+        Ja. Elke website wordt responsive gebouwd, zodat desktop, tablet en
+        mobiel strak, snel en professioneel aanvoelen.
+      </>
+    ),
   },
   {
     question: "Is SEO inbegrepen bij de website?",
-    answer:
-      "Ja. De basis wordt direct goed opgebouwd met logische headings, snelle laadtijd, nette structuur en interne links. Bij Growth en Agency Level is er meer ruimte voor SEO-landingspagina’s en lokale vindbaarheid.",
+    answer: (
+      <>
+        Ja. Elke website krijgt een sterke SEO-basis met logische headings,
+        snelle laadtijd, nette structuur en interne links. Bij Growth en Agency
+        Level is er extra ruimte voor{" "}
+        <Link href="/seo-landingspaginas" className={linkClass}>
+          SEO-landingspagina’s
+        </Link>{" "}
+        en lokale vindbaarheid.
+      </>
+    ),
   },
   {
     question: "Welk websitepakket past het beste bij mijn bedrijf?",
-    answer:
-      "Starter is geschikt voor starters, zzp’ers en ondernemers die professioneel online zichtbaar willen worden met een one-page website. Growth is geschikt voor ondernemers die actief klanten willen aantrekken via Google, met meerdere pagina’s en ruimte voor maximaal 2 SEO-landingspagina’s. Agency Level is geschikt voor bedrijven die serieus willen investeren in online groei, met een uitgebreidere structuur en ruimte voor maximaal 5 SEO-landingspagina’s.",
+    answer: (
+      <>
+        Starter past bij een professionele one-page website. Growth is sterker
+        wanneer je actief klanten wilt aantrekken via Google. Agency Level past
+        bij bedrijven die willen investeren in premium uitstraling, groei en
+        schaalbaarheid. Bekijk ook waarom wij vaak kiezen voor een{" "}
+        <Link href="/nextjs-website-laten-maken" className={linkClass}>
+          Next.js website laten maken
+        </Link>
+        .
+      </>
+    ),
   },
   {
     question: "Waarom is een website met meerdere pagina’s beter voor SEO?",
-    answer:
-      "Zoekmachines begrijpen een website beter wanneer belangrijke onderwerpen verdeeld zijn over meerdere pagina’s. Een one-page website is sneller en voordeliger, maar biedt minder ruimte om gevonden te worden op verschillende zoektermen. Daarom biedt een website met meerdere pagina’s vaak meer mogelijkheden voor SEO, lokale vindbaarheid en toekomstige groei.",
+    answer: (
+      <>
+        Google begrijpt aparte, gerichte pagina’s vaak beter dan één lange
+        pagina. Daardoor kun je gevonden worden op meerdere zoektermen, diensten
+        of regio’s. Lees hoe dit werkt met{" "}
+        <Link href="/seo-landingspaginas" className={linkClass}>
+          SEO-landingspagina’s voor betere vindbaarheid
+        </Link>
+        .
+      </>
+    ),
   },
   {
     question: "Kan mijn website later meegroeien?",
-    answer:
-      "Ja. De website wordt schaalbaar opgebouwd, zodat extra pagina’s, cases, video’s, SEO-content, nieuwe functies en extra landingspagina’s later toegevoegd kunnen worden.",
+    answer: (
+      <>
+        Ja. De website wordt schaalbaar opgebouwd, zodat extra pagina’s, cases,
+        video’s, SEO-content, functies en landingspagina’s later toegevoegd
+        kunnen worden. Dat is één van de voordelen van een{" "}
+        <Link href="/nextjs-website-laten-maken" className={linkClass}>
+          moderne Next.js website
+        </Link>
+        .
+      </>
+    ),
   },
 ];
 
@@ -100,9 +145,9 @@ export default function FAQ() {
                       ease: [0.16, 1, 0.3, 1],
                     }}
                   >
-                    <p className="max-w-3xl px-6 pb-6 text-base leading-7 text-white/55">
+                    <div className="max-w-3xl px-6 pb-6 text-base leading-7 text-white/55">
                       {item.answer}
-                    </p>
+                    </div>
                   </motion.div>
                 )}
               </AnimatePresence>
