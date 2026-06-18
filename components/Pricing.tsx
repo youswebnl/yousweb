@@ -4,88 +4,48 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 
 const plans = [
-
   {
-
     name: "Starter",
-
     price: "Vanaf €749",
-
     tag: "Voor starters en zzp’ers die professioneel online zichtbaar willen zijn met een sterke one-page website.",
-
     direction: "left",
-
     features: [
-
       "One-page website",
-
       "Premium basisdesign",
-
       "Responsive voor mobiel en tablet",
-
       "Basis SEO-structuur",
-
       "Professionele aanvraagflow",
-
     ],
-
   },
-
   {
-
     name: "Growth",
-
     price: "Vanaf €1.250",
-
     tag: "Meest gekozen voor ondernemers die actief klanten willen aantrekken via Google.",
-
     featured: true,
-
     direction: "bottom",
-
     features: [
-
       "Alles uit Starter",
-
       "Website tot 3 pagina’s",
-
       "Tot 2 SEO-landingspagina’s",
-
+      "Premium animaties op homepage",
       "Conversiegerichte opbouw",
-
-      "Sterkere UX/UI structuur",
-
     ],
-
   },
-
   {
-
     name: "Agency Level",
-
     price: "Vanaf €2.250",
-
     tag: "Voor bedrijven die serieus willen investeren in online groei, vertrouwen en schaalbaarheid.",
-
     direction: "right",
-
     features: [
-
       "Alles uit Growth",
-
       "Website tot 6 pagina’s",
-
       "Tot 5 SEO-landingspagina’s",
-
-      "Premium maatwerk uitstraling",
-
+      "Premium animaties op volledige website",
       "Strategische conversieflow",
-
     ],
-
   },
-
 ];
+
 function getInitial(direction: string) {
   if (direction === "left") return { opacity: 0, x: -46, y: 18, scale: 0.97 };
   if (direction === "right") return { opacity: 0, x: 46, y: 18, scale: 0.97 };
@@ -114,8 +74,9 @@ export default function Pricing() {
         </h2>
 
         <p className="mt-6 text-base leading-7 text-white/55 md:text-lg">
-          Van een professionele basiswebsite tot een complete agency-level
-          website met premium uitstraling, sterke structuur en SEO-fundament.
+          Van een professionele one-page website tot een complete agency-level
+          website met SEO-landingspagina’s, premium animaties en sterke
+          conversiestructuur.
         </p>
       </motion.div>
 
@@ -206,7 +167,7 @@ export default function Pricing() {
             </div>
           </motion.article>
         ))}
-           </div>
+      </div>
 
       <motion.p
         initial={{ opacity: 0, y: 18 }}
@@ -220,11 +181,11 @@ export default function Pricing() {
           href="/seo-landingspaginas"
           className="font-medium text-blue-300 underline underline-offset-4 transition hover:text-blue-200"
         >
-          Ontdek hoe SEO-landingspagina’s helpen bij betere vindbaarheid in Google
+          Ontdek hoe SEO-landingspagina’s helpen bij betere vindbaarheid in
+          Google
         </Link>
         .
       </motion.p>
-
     </section>
   );
 }
