@@ -1,85 +1,232 @@
 "use client";
 
+import Link from "next/link";
+import type { ReactNode } from "react";
 import { motion } from "framer-motion";
 
-const portfolioProjects = [
+type PortfolioProject = {
+  title: string;
+  type: string;
+  videoEmbed: string | null;
+  description: string;
+};
+
+type PricingPlan = {
+  name: "Starter" | "Growth" | "Agency Level";
+  price: string;
+  featured?: boolean;
+  description: string;
+  features: string[];
+};
+
+type FAQItem = {
+  question: string;
+  answer: ReactNode;
+};
+
+const linkClass =
+  "font-medium text-blue-300 underline underline-offset-4 transition hover:text-blue-200";
+
+const portfolioProjects: PortfolioProject[] = [
   {
     title: "Zaanse Montage",
     type: "Montage & renovatie website",
-    video:
-      "https://cqvozahseaepel7p.public.blob.vercel-storage.com/zaansemontage-desktop.mp4",
+    videoEmbed:
+      "https://player.mediadelivery.net/embed/686200/0051a90d-7bd6-4cca-a761-b18e937afe00?autoplay=true&loop=true&muted=true&preload=true&responsive=true",
     description:
       "Een professionele bedrijfswebsite met duidelijke dienstenstructuur, sterke eerste indruk en een contactgerichte opbouw.",
   },
   {
     title: "Your Soul Therapist",
     type: "Therapie & coaching website",
-    video:
-      "https://cqvozahseaepel7p.public.blob.vercel-storage.com/yoursoultherapist-desktop.mp4",
+    videoEmbed:
+      "https://player.mediadelivery.net/embed/686200/8299c1b4-6812-433e-84ce-82898b0cb262?autoplay=true&loop=true&muted=true&preload=true&responsive=true",
     description:
       "Een rustige premium website met zachte uitstraling, heldere gebruikerservaring en focus op vertrouwen.",
   },
   {
     title: "Volgende case study",
     type: "Binnenkort toegevoegd",
-    video: null,
+    videoEmbed: null,
     description:
       "Binnenkort voegen we hier een nieuwe website case toe met premium design, sterke UX en conversiegerichte structuur.",
   },
 ];
 
-const pricingPlans = [
+const pricingPlans: PricingPlan[] = [
   {
     name: "Starter",
     price: "Vanaf €749",
     description:
-      "Voor ondernemers die snel professioneel online zichtbaar willen worden.",
+      "Voor starters en zzp’ers die professioneel online zichtbaar willen worden met een sterke one-page website.",
+    features: [
+      "One-page website",
+      "Premium basisdesign",
+      "Responsive voor mobiel en tablet",
+      "Basis SEO-structuur",
+      "Contactformulier, WhatsApp en e-mail",
+    ],
   },
   {
     name: "Growth",
     price: "Vanaf €1.250",
     featured: true,
     description:
-      "Voor bedrijven die sterker willen groeien met betere UX, structuur en conversie.",
+      "Meest gekozen voor ondernemers die actief klanten willen aantrekken via Google en sterker willen converteren.",
+    features: [
+      "Alles uit Starter",
+      "Website tot 3 pagina’s",
+      "Tot 2 SEO-landingspagina’s",
+      "Premium animaties op homepage",
+      "Conversiegerichte opbouw",
+    ],
   },
   {
     name: "Agency Level",
     price: "Vanaf €2.250",
     description:
-      "Voor premium positionering, moderne uitstraling en maximale impact.",
+      "Voor bedrijven die serieus willen investeren in online groei, vertrouwen en schaalbaarheid.",
+    features: [
+      "Alles uit Growth",
+      "Website tot 6 pagina’s",
+      "Tot 5 SEO-landingspagina’s",
+      "Premium animaties op volledige website",
+      "Strategische conversieflow",
+    ],
   },
 ];
 
-const faqs = [
+const faqs: FAQItem[] = [
   {
     question: "Wat kost een professionele website laten maken?",
-    answer:
-      "Dat hangt af van de structuur, functies en premium opties. Daarom werken wij met website pakketten en een offerte builder voor een duidelijke prijsindicatie.",
+    answer: (
+      <>
+        Een professionele website bij YousWeb start vanaf €749. De uiteindelijke
+        prijs hangt af van het pakket, het aantal pagina’s,
+        SEO-landingspagina’s, animaties en eventuele maatwerkfuncties. Via de{" "}
+        <Link href="/website-builder" className={linkClass}>
+          Website Builder
+        </Link>{" "}
+        stel je jouw website stap voor stap samen en ontvang je direct een
+        duidelijke prijsindicatie. Daarna bespreken we persoonlijk wat het beste
+        past bij jouw bedrijf, doelgroep en groeidoel.
+      </>
+    ),
   },
   {
-    question: "Hoe lang duurt het bouwen van een website?",
-    answer:
-      "Kleinere websites kunnen sneller worden opgeleverd, terwijl grotere premium websites meer tijd nodig hebben voor design, structuur en optimalisatie.",
-  },
-  {
-    question: "Wordt mijn website ook goed op mobiel gebouwd?",
-    answer:
-      "Ja. Elke website wordt responsive ontwikkeld voor desktop, tablet en mobiel zodat bezoekers overal een professionele ervaring krijgen.",
+    question: "Welk websitepakket past het beste bij mijn bedrijf?",
+    answer: (
+      <>
+        Starter past bij ondernemers die professioneel online zichtbaar willen
+        zijn met een sterke one-page website. Growth is bedoeld voor ondernemers
+        die meer klanten willen aantrekken via Google met meerdere pagina’s,
+        SEO-landingspagina’s en premium animaties op de homepage. Agency Level
+        is geschikt voor bedrijven die willen investeren in een complete premium
+        website met meer pagina’s, meer SEO-structuur en animaties op de
+        volledige website. Je kunt jouw pakket kiezen via de{" "}
+        <Link href="/website-builder" className={linkClass}>
+          offerte builder
+        </Link>
+        .
+      </>
+    ),
   },
   {
     question: "Zit SEO inbegrepen bij een website?",
-    answer:
-      "Ja. Elke professionele website wordt opgebouwd met een sterke SEO-basis zoals duidelijke headings, responsive design, snelle performance en slimme interne links.",
+    answer: (
+      <>
+        Ja. Elke website krijgt een sterke SEO-basis met duidelijke headings,
+        nette paginastructuur, responsive opbouw, snelle performance en interne
+        links. Bij Growth en Agency Level is er extra ruimte voor gerichte{" "}
+        <Link href="/seo-landingspaginas" className={linkClass}>
+          SEO-landingspagina’s
+        </Link>
+        , waardoor je beter kunt inspelen op specifieke diensten, regio’s en
+        zoekwoorden. Zo bouw je niet alleen een mooie website, maar ook een
+        sterker fundament voor vindbaarheid in Google.
+      </>
+    ),
+  },
+  {
+    question: "Waarom is een website met meerdere pagina’s beter voor SEO?",
+    answer: (
+      <>
+        Google begrijpt aparte, gerichte pagina’s vaak beter dan één lange
+        pagina. Een one-page website kan sterk zijn voor een compacte start,
+        maar met meerdere pagina’s kun je duidelijker uitleggen wat je doet,
+        voor wie je werkt en op welke zoektermen je gevonden wilt worden. Daarom
+        zijn{" "}
+        <Link href="/seo-landingspaginas" className={linkClass}>
+          SEO-landingspagina’s
+        </Link>{" "}
+        belangrijk voor ondernemers die lokaal of op meerdere diensten willen
+        groeien.
+      </>
+    ),
+  },
+  {
+    question: "Wordt mijn website ook goed op mobiel gebouwd?",
+    answer: (
+      <>
+        Ja. Elke website wordt responsive ontwikkeld voor desktop, tablet en
+        mobiel. We bouwen eerst een sterke desktopervaring en zorgen daarna dat
+        de mobiele versie strak, snel en duidelijk blijft. Dat is belangrijk
+        omdat veel bezoekers via mobiel oriënteren, vergelijken en contact
+        opnemen. In onze{" "}
+        <Link href="/portfolio-websites" className={linkClass}>
+          portfolio websites
+        </Link>{" "}
+        kun je zien hoe desktop en mobiel samen één professionele ervaring
+        vormen.
+      </>
+    ),
+  },
+  {
+    question: "Waarom bouwt YousWeb veel websites met Next.js?",
+    answer: (
+      <>
+        Voor premium websites gebruiken wij vaak Next.js omdat het veel vrijheid
+        geeft in design, animaties, performance en schaalbaarheid. Daardoor zit
+        je minder vast aan standaard thema’s of zware plugins. Dat past goed bij
+        ondernemers die een snelle, moderne en professionele website willen.
+        Lees meer over onze aanpak op de pagina{" "}
+        <Link href="/nextjs-website-laten-maken" className={linkClass}>
+          Next.js website laten maken
+        </Link>
+        .
+      </>
+    ),
   },
   {
     question: "Kan ik later extra functies toevoegen?",
-    answer:
-      "Ja. De websites worden schaalbaar opgebouwd zodat later extra pagina’s, animaties, portfolio’s of premium functies toegevoegd kunnen worden.",
+    answer: (
+      <>
+        Ja. De websites worden schaalbaar opgebouwd, zodat je later extra
+        pagina’s, case studies, video’s, SEO-content of maatwerkfuncties kunt
+        toevoegen. Denk bijvoorbeeld aan een{" "}
+        <Link href="/website-offerte-systeem" className={linkClass}>
+          website offerte systeem
+        </Link>
+        , online afsprakenplanner, CRM-koppeling of extra SEO-landingspagina’s.
+        Zo kan je website meegroeien met je bedrijf zonder dat alles opnieuw
+        gebouwd hoeft te worden.
+      </>
+    ),
   },
   {
     question: "Hoe werkt het offerteproces?",
-    answer:
-      "Je kiest eerst een website pakket, voegt extra opties toe en verzendt daarna jouw aanvraag. Vervolgens nemen we persoonlijk contact op om jouw website, planning en prijsindicatie samen te bespreken.",
+    answer: (
+      <>
+        Je kiest eerst een pakket, voegt eventuele extra opties toe en verstuurt
+        daarna jouw aanvraag. Vervolgens nemen we persoonlijk contact op om jouw
+        wensen, planning en definitieve prijs te bespreken. De interactieve{" "}
+        <Link href="/website-builder" className={linkClass}>
+          Website Builder
+        </Link>{" "}
+        laat direct zien hoe dit werkt: van pakketkeuze en prijsindicatie tot
+        aanvraag en persoonlijke opvolging.
+      </>
+    ),
   },
 ];
 
@@ -95,16 +242,16 @@ export default function WebsiteLatenMakenClient() {
         transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1] }}
         className="relative z-10 mx-auto flex max-w-7xl items-center justify-between px-6 py-6"
       >
-        <a href="/" className="text-lg font-semibold tracking-tight">
+        <Link href="/" className="text-lg font-semibold tracking-tight">
           Yous<span className="text-blue-400">Web</span>
-        </a>
+        </Link>
 
-        <a
+        <Link
           href="/website-builder"
           className="rounded-full border border-white/15 px-5 py-3 text-sm font-medium text-white/80 transition hover:bg-white hover:text-black"
         >
           Start project
-        </a>
+        </Link>
       </motion.nav>
 
       <section className="relative z-10 mx-auto flex max-w-7xl flex-col px-6 pb-28 pt-20">
@@ -129,38 +276,32 @@ export default function WebsiteLatenMakenClient() {
               professionele website laten maken
             </strong>{" "}
             betekent meer dan alleen mooi design. Wij bouwen moderne websites
-            met responsive design, sterke UX, snelle performance en een slimme
-            SEO-structuur. Bekijk ook onze{" "}
-            <a
-              href="/portfolio-websites"
-              className="text-blue-400 underline-offset-4 hover:underline"
-            >
+            met responsive design, premium animaties, snelle performance en een
+            slimme SEO-structuur. Bekijk ook onze{" "}
+            <Link href="/portfolio-websites" className={linkClass}>
               portfolio websites
-            </a>{" "}
-            of vergelijk direct de{" "}
-            <a
-              href="/#prijzen"
-              className="text-blue-400 underline-offset-4 hover:underline"
-            >
-              website pakketten
-            </a>
+            </Link>{" "}
+            of stel direct jouw website samen via de{" "}
+            <Link href="/website-builder" className={linkClass}>
+              Website Builder
+            </Link>
             .
           </p>
 
           <div className="mt-10 flex flex-col gap-4 sm:flex-row">
-            <a
+            <Link
               href="/website-builder"
               className="rounded-full bg-white px-8 py-4 text-sm font-semibold text-black transition hover:scale-[1.03] hover:bg-white/90"
             >
               Stel jouw website samen
-            </a>
+            </Link>
 
-            <a
+            <Link
               href="/portfolio-websites"
               className="rounded-full border border-white/15 bg-white/[0.03] px-8 py-4 text-sm font-semibold text-white transition hover:scale-[1.03] hover:bg-white/10"
             >
               Bekijk portfolio websites
-            </a>
+            </Link>
           </div>
         </motion.div>
 
@@ -178,9 +319,9 @@ export default function WebsiteLatenMakenClient() {
               featured: true,
             },
             {
-              label: "Premium UX",
+              label: "Premium animaties",
               title: "Gebouwd voor vertrouwen",
-              text: "Moderne layouts, duidelijke flow en sterke gebruikerservaring voor hogere conversie.",
+              text: "Moderne layouts, beweging en duidelijke flow zorgen voor een sterkere eerste indruk.",
             },
           ].map((item, index) => (
             <motion.div
@@ -240,13 +381,13 @@ export default function WebsiteLatenMakenClient() {
           </p>
 
           <p className="mt-6 max-w-2xl text-base leading-8 text-white/55">
-            Daarom bouwen wij{" "}
-            <strong className="font-semibold text-white">
-              moderne websites
-            </strong>{" "}
-            met responsive design, premium UX, duidelijke structuur en een
-            sterke SEO-basis. Zo wordt jouw website niet alleen mooi, maar ook
-            strategisch opgebouwd als website die past bij jouw groeifase.
+            Daarom bouwen wij moderne websites met responsive design, premium
+            animaties, duidelijke structuur en een sterke SEO-basis. Voor
+            bedrijven die meer willen dan een standaard website is een{" "}
+            <Link href="/nextjs-website-laten-maken" className={linkClass}>
+              Next.js website laten maken
+            </Link>{" "}
+            vaak de sterkste keuze.
           </p>
         </motion.div>
 
@@ -273,7 +414,7 @@ export default function WebsiteLatenMakenClient() {
                   ? "Responsive websites"
                   : index === 1
                     ? "SEO structuur"
-                    : "Premium uitstraling"}
+                    : "Premium animaties"}
               </p>
 
               <h3 className="mt-3 text-2xl font-semibold">{title}</h3>
@@ -283,7 +424,7 @@ export default function WebsiteLatenMakenClient() {
                   ? "Elke website wordt geoptimaliseerd voor desktop, tablet en mobiel zodat bezoekers overal een professionele ervaring krijgen."
                   : index === 1
                     ? "Van headings tot performance en interne structuur: alles wordt opgebouwd met een sterke SEO-basis voor toekomstige groei."
-                    : "Moderne layouts, duidelijke hiërarchie en sterke UX zorgen voor een professionele eerste indruk bij bezoekers."}
+                    : "Moderne layouts, duidelijke hiërarchie en premium animaties zorgen voor een professionele eerste indruk bij bezoekers."}
               </p>
             </motion.div>
           ))}
@@ -304,17 +445,17 @@ export default function WebsiteLatenMakenClient() {
             </p>
 
             <h2 className="max-w-3xl text-4xl font-semibold tracking-[-0.04em] md:text-6xl">
-              Bekijk professionele portfolio websites met premium uitstraling
-              en moderne gebruikerservaring.
+              Bekijk professionele portfolio websites met premium uitstraling en
+              moderne gebruikerservaring.
             </h2>
           </div>
 
-          <a
+          <Link
             href="/portfolio-websites"
             className="inline-flex items-center rounded-full border border-white/15 px-6 py-4 text-sm font-semibold text-white transition hover:bg-white hover:text-black"
           >
             Bekijk volledige portfolio
-          </a>
+          </Link>
         </motion.div>
 
         <div className="grid gap-6 lg:grid-cols-3">
@@ -332,17 +473,14 @@ export default function WebsiteLatenMakenClient() {
               className="group overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.03] p-5 backdrop-blur-xl transition hover:-translate-y-2 hover:border-white/20 hover:bg-white/[0.05]"
             >
               <div className="relative min-h-[240px] overflow-hidden rounded-[1.5rem] border border-white/10 bg-[#0B0B0B]">
-                {project.video ? (
-                  <video
-                    autoPlay
-                    muted
-                    loop
-                    playsInline
-                    preload="metadata"
-                    className="h-[240px] w-full object-contain"
-                  >
-                    <source src={project.video} type="video/mp4" />
-                  </video>
+                {project.videoEmbed ? (
+                  <iframe
+                    src={project.videoEmbed}
+                    loading="lazy"
+                    className="h-[240px] w-full border-0"
+                    allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;fullscreen"
+                    allowFullScreen
+                  />
                 ) : (
                   <>
                     <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(59,130,246,0.22),transparent_35%),radial-gradient(circle_at_bottom_right,rgba(139,92,246,0.14),transparent_35%)]" />
@@ -371,12 +509,9 @@ export default function WebsiteLatenMakenClient() {
 
                 <p className="mt-4 text-sm leading-7 text-white/55">
                   {project.description} Bekijk de volledige{" "}
-                  <a
-                    href="/portfolio-websites"
-                    className="text-blue-400 underline-offset-4 hover:underline"
-                  >
+                  <Link href="/portfolio-websites" className={linkClass}>
                     portfolio websites
-                  </a>{" "}
+                  </Link>{" "}
                   voor meer voorbeelden en inspiratie.
                 </p>
               </div>
@@ -403,12 +538,9 @@ export default function WebsiteLatenMakenClient() {
           </h2>
 
           <p className="mt-7 max-w-2xl text-base leading-8 text-white/60 md:text-lg">
-            Via onze interactieve offerte builder stel je eenvoudig jouw{" "}
-            <strong className="font-semibold text-white">
-              professionele website
-            </strong>{" "}
-            samen. Kies een pakket, voeg premium opties toe en ontvang direct
-            een prijsindicatie.
+            Via onze interactieve offerte builder stel je eenvoudig jouw
+            professionele website samen. Kies een pakket, voeg logische extra
+            opties toe en ontvang direct een prijsindicatie.
           </p>
         </motion.div>
 
@@ -444,26 +576,42 @@ export default function WebsiteLatenMakenClient() {
                 {plan.price}
               </p>
 
-              <p className="mt-5 text-sm leading-7 text-white/55">
+              <p className="mt-5 min-h-[84px] text-sm leading-7 text-white/55">
                 {plan.description}
               </p>
 
               <div className="my-7 h-px bg-white/10" />
 
-              <p className="text-sm leading-7 text-white/45">
-                Stel jouw website samen via de offerte builder en ontvang een
-                duidelijke prijsindicatie op basis van jouw wensen.
-              </p>
+              <ul className="space-y-4">
+                {plan.features.map((feature) => (
+                  <li
+                    key={feature}
+                    className="flex gap-3 text-sm text-white/65"
+                  >
+                    <span className="mt-1 h-2 w-2 shrink-0 rounded-full bg-blue-400" />
+                    <span>{feature}</span>
+                  </li>
+                ))}
+              </ul>
 
-              <a
+              <Link
                 href="/website-builder"
                 className="mt-8 inline-flex w-full items-center justify-center rounded-full border border-white/15 px-6 py-4 text-sm font-semibold text-white transition hover:bg-white hover:text-black"
               >
                 Stel jouw website samen
-              </a>
+              </Link>
             </motion.article>
           ))}
         </div>
+
+        <p className="mx-auto mt-10 max-w-2xl text-center text-sm leading-7 text-white/50">
+          Twijfel je tussen Growth en Agency Level?{" "}
+          <Link href="/seo-landingspaginas" className={linkClass}>
+            Ontdek hoe SEO-landingspagina’s helpen bij betere vindbaarheid in
+            Google
+          </Link>
+          .
+        </p>
       </section>
 
       <section className="relative z-10 mx-auto max-w-5xl px-6 py-28">
@@ -510,9 +658,9 @@ export default function WebsiteLatenMakenClient() {
                 </span>
               </summary>
 
-              <p className="mt-5 max-w-3xl text-base leading-7 text-white/55">
+              <div className="mt-5 max-w-3xl text-base leading-7 text-white/55">
                 {item.answer}
-              </p>
+              </div>
             </motion.details>
           ))}
         </div>
