@@ -3,16 +3,25 @@
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 
-const projects = [
+type Project = {
+  title: string;
+  type: string;
+  description: string;
+  desktopEmbed: string;
+  mobileEmbed: string;
+  highlights: string[];
+};
+
+const projects: Project[] = [
   {
     title: "Zaanse Montage",
     type: "Montage & renovatie website",
     description:
       "Een professionele website voor een montagebedrijf, gebouwd om vertrouwen te wekken, diensten duidelijk te presenteren en bezoekers richting contact te sturen.",
-    desktopVideo:
-      "https://cqvozahseaepel7p.public.blob.vercel-storage.com/zaansemontage-desktop.mp4",
-    mobileVideo:
-      "https://cqvozahseaepel7p.public.blob.vercel-storage.com/zaansemontage-mobile.mp4",
+    desktopEmbed:
+      "https://player.mediadelivery.net/embed/686200/0051a90d-7bd6-4cca-a761-b18e937afe00?autoplay=true&loop=true&muted=true&preload=true&responsive=true",
+    mobileEmbed:
+      "https://player.mediadelivery.net/embed/686200/7b6b7da7-6301-456e-b8ab-a642656daaf6?autoplay=true&loop=true&muted=true&preload=true&responsive=true",
     highlights: [
       "Sterke eerste indruk",
       "Duidelijke dienstenstructuur",
@@ -25,10 +34,10 @@ const projects = [
     type: "Therapie & persoonlijke begeleiding",
     description:
       "Een zachte, rustige en professionele website voor een therapeutische praktijk, met focus op vertrouwen, helderheid en een prettige gebruikerservaring.",
-    desktopVideo:
-      "https://cqvozahseaepel7p.public.blob.vercel-storage.com/yoursoultherapist-desktop.mp4",
-    mobileVideo:
-      "https://cqvozahseaepel7p.public.blob.vercel-storage.com/yoursoultherapist-mobile.mp4",
+    desktopEmbed:
+      "https://player.mediadelivery.net/embed/686200/8299c1b4-6812-433e-84ce-82898b0cb262?autoplay=true&loop=true&muted=true&preload=true&responsive=true",
+    mobileEmbed:
+      "https://player.mediadelivery.net/embed/686200/f90e35cb-7535-4343-9a95-e89bd8530632?autoplay=true&loop=true&muted=true&preload=true&responsive=true",
     highlights: [
       "Rustige premium uitstraling",
       "Heldere pagina-opbouw",
@@ -41,10 +50,10 @@ const projects = [
     type: "Live agency case study",
     description:
       "Deze website zelf: gebouwd als high-end voorbeeld van premium design, duidelijke pakketten, SEO-structuur en een werkende offerteflow.",
-    desktopVideo:
-      "https://cqvozahseaepel7p.public.blob.vercel-storage.com/yousweb-desktop.mp4",
-    mobileVideo:
-      "https://cqvozahseaepel7p.public.blob.vercel-storage.com/yousweb-mobile.mp4",
+    desktopEmbed:
+      "https://player.mediadelivery.net/embed/686200/68ff6e60-7358-404f-915f-f7bb6a776726?autoplay=true&loop=true&muted=true&preload=true&responsive=true",
+    mobileEmbed:
+      "https://player.mediadelivery.net/embed/686200/f9aff053-2a7a-4b6b-a35b-8bbff41cbf2b?autoplay=true&loop=true&muted=true&preload=true&responsive=true",
     highlights: [
       "Premium homepage",
       "Website builder flow",
@@ -53,6 +62,27 @@ const projects = [
     ],
   },
 ];
+
+function BunnyEmbed({
+  src,
+  title,
+  className = "",
+}: {
+  src: string;
+  title: string;
+  className?: string;
+}) {
+  return (
+    <iframe
+      src={src}
+      title={title}
+      loading="lazy"
+      className={`h-full w-full border-0 ${className}`}
+      allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;fullscreen"
+      allowFullScreen
+    />
+  );
+}
 
 export default function PortfolioClient() {
   const [activeVideo, setActiveVideo] = useState<string | null>(null);
@@ -130,24 +160,18 @@ export default function PortfolioClient() {
               <div className="rounded-[2rem] border border-white/10 bg-black/30 p-4">
                 <button
                   type="button"
-                  onClick={() => setActiveVideo(project.desktopVideo)}
+                  onClick={() => setActiveVideo(project.desktopEmbed)}
                   className="group relative block w-full overflow-hidden rounded-[1.5rem] border border-white/10 bg-[#0B0B0B] text-left"
                 >
                   <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(59,130,246,0.22),transparent_35%),radial-gradient(circle_at_bottom_right,rgba(139,92,246,0.16),transparent_35%)]" />
 
                   <div className="relative aspect-video overflow-hidden rounded-[1.5rem] bg-black/45">
-                    <video
-                      autoPlay
-                      muted
-                      loop
-                      playsInline
-                      preload="metadata"
-                      className="h-full w-full object-contain"
-                    >
-                      <source src={project.desktopVideo} type="video/mp4" />
-                    </video>
+                    <BunnyEmbed
+                      src={project.desktopEmbed}
+                      title={`${project.title} desktop preview`}
+                    />
 
-                    <div className="absolute inset-0 flex items-center justify-center bg-black/0 opacity-0 transition-colors duration-500 group-hover:bg-black/35 group-hover:opacity-100">
+                    <div className="pointer-events-none absolute inset-0 flex items-center justify-center bg-black/0 opacity-0 transition-colors duration-500 group-hover:bg-black/35 group-hover:opacity-100">
                       <div className="rounded-full border border-white/15 bg-white/10 px-5 py-3 text-sm font-semibold text-white backdrop-blur-xl">
                         Bekijk fullscreen
                       </div>
@@ -202,17 +226,11 @@ export default function PortfolioClient() {
                 </div>
 
                 <div className="mx-auto w-full max-w-[220px] rounded-[2rem] border border-white/15 bg-[#080808] p-3 shadow-2xl">
-                  <div className="h-[350px] overflow-hidden rounded-[1.5rem] border border-white/10 bg-white/[0.03]">
-                    <video
-                      autoPlay
-                      muted
-                      loop
-                      playsInline
-                      preload="metadata"
-                      className="h-full w-full object-cover"
-                    >
-                      <source src={project.mobileVideo} type="video/mp4" />
-                    </video>
+                  <div className="h-[350px] overflow-hidden rounded-[1.5rem] border border-white/10 bg-black">
+                    <BunnyEmbed
+                      src={project.mobileEmbed}
+                      title={`${project.title} mobile preview`}
+                    />
                   </div>
                 </div>
 
@@ -391,16 +409,10 @@ export default function PortfolioClient() {
               </button>
 
               <div className="aspect-video overflow-hidden rounded-[1.5rem] border border-white/10 bg-black">
-                <video
-                  autoPlay
-                  muted
-                  loop
-                  playsInline
-                  controls
-                  className="h-full w-full object-contain"
-                >
-                  <source src={activeVideo} type="video/mp4" />
-                </video>
+                <BunnyEmbed
+                  src={activeVideo}
+                  title="Fullscreen video preview"
+                />
               </div>
             </motion.div>
           </motion.div>
