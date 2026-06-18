@@ -48,25 +48,42 @@ const packages: WebsitePackage[] = [
 const extras: ExtraOption[] = [
   {
     name: "Extra pagina",
-    price: 175,
+    price: 150,
     billing: "one-time",
     description:
       "Voor een extra dienst-, over ons-, werkwijze- of informatiepagina.",
   },
   {
     name: "Extra SEO-landingspagina",
-    price: 250,
+    price: 200,
     billing: "one-time",
     description:
       "Voor een extra pagina gericht op vindbaarheid, relevante zoekwoorden en aanvragen.",
+    availableFor: ["Growth", "Agency Level"],
   },
   {
     name: "Premium animatiepakket",
     price: 350,
     billing: "one-time",
     description:
-      "Voor extra beweging, verfijnde interacties en een luxere ervaring. Beschikbaar bij Growth en Agency Level.",
-    availableFor: ["Growth", "Agency Level"],
+      "Voor extra beweging, verfijnde interacties en een luxere gebruikerservaring.",
+    availableFor: ["Growth"],
+  },
+  {
+    name: "Website offerte systeem",
+    price: 250,
+    billing: "one-time",
+    description:
+      "Voor een geavanceerde offerteflow met meerdere stappen, prijsindicaties, automatische e-mails en WhatsApp meldingen.",
+    availableFor: ["Growth"],
+  },
+  {
+    name: "Online afsprakenplanner",
+    price: 250,
+    billing: "one-time",
+    description:
+      "Voor afspraken via Calendly of Google Calendar inclusief bevestigingen en herinneringen.",
+    availableFor: ["Growth"],
   },
   {
     name: "Meertalige website NL/ENG",
@@ -76,15 +93,8 @@ const extras: ExtraOption[] = [
       "Voor een Nederlandse en Engelse versie van de belangrijkste pagina’s.",
   },
   {
-    name: "Booking (afspraak- of aanvraag) systeem",
-    price: 350,
-    billing: "one-time",
-    description:
-      "Voor afspraken, aanvragen, intakevelden of een uitgebreid contactproces.",
-  },
-  {
-    name: "Onderhoud pakket",
-    price: 150,
+    name: "Onderhoud & support",
+    price: 75,
     billing: "monthly",
     description:
       "Voor maandelijkse ondersteuning, kleine updates en technische controle.",
@@ -92,6 +102,57 @@ const extras: ExtraOption[] = [
 ];
 
 const steps = ["Pakket", "Extra’s", "Prijs", "Gegevens", "Verzenden"];
+
+const packageDetails: Record<
+  WebsitePackage["name"],
+  {
+    intro: string;
+    links: {
+      text: string;
+      href: string;
+      label: string;
+    }[];
+  }
+> = {
+  Starter: {
+    intro:
+      "Je ziet alleen uitbreidingen die logisch passen bij een compacte one-page website.",
+    links: [
+      {
+        text: "Wil je uitgebreid weten wat je allemaal krijgt binnen het",
+        href: "/starter-website-pakket",
+        label: "Starter pakket",
+      },
+    ],
+  },
+  Growth: {
+    intro:
+      "Je ziet uitbreidingen die passen bij ondernemers die actiever willen groeien via Google en conversie.",
+    links: [
+      {
+        text: "Wil je uitgebreid weten wat je allemaal krijgt binnen het",
+        href: "/growth-website-pakket",
+        label: "Growth pakket",
+      },
+      {
+        text: "Wil je meer pagina’s, meer SEO-landingspagina’s en een premium groeistructuur? Bekijk dan het",
+        href: "/agency-website-pakket",
+        label: "Agency Level pakket",
+      },
+    ],
+  },
+  "Agency Level": {
+    intro:
+      "Agency Level bevat al veel premium onderdelen. Daarom zie je hier alleen uitbreidingen die logisch bovenop dit pakket komen.",
+    links: [
+      {
+        text: "Wil je uitgebreid weten wat je allemaal krijgt binnen het",
+        href: "/agency-website-pakket",
+        label: "Agency Level pakket",
+      },
+    ],
+  },
+};
 
 export default function WebsiteBuilderPage() {
   const builderTopRef = useRef<HTMLDivElement | null>(null);
@@ -112,13 +173,12 @@ export default function WebsiteBuilderPage() {
     wensen: "",
   });
 
-const scrollToBuilderTop = () => {
-  builderTopRef.current?.scrollIntoView({
-    behavior: "smooth",
-    block: "start",
-  });
-};
-
+  const scrollToBuilderTop = () => {
+    builderTopRef.current?.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+  };
 
   const updateFormData = (field: string, value: string) => {
     setFormData((current) => ({
@@ -152,6 +212,11 @@ const scrollToBuilderTop = () => {
 
   const extraIsAvailableForSelectedPackage = (extra: ExtraOption) =>
     !extra.availableFor || extra.availableFor.includes(selectedPackage.name);
+
+  const availableExtras = useMemo(
+    () => extras.filter((extra) => extraIsAvailableForSelectedPackage(extra)),
+    [selectedPackage.name],
+  );
 
   const emailIsValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email);
   const phoneIsValid = /^[0-9+\s()-]{10,15}$/.test(formData.telefoon);
@@ -189,20 +254,20 @@ const scrollToBuilderTop = () => {
     );
   };
 
- const nextStep = () => {
-  if (currentStep === 3 && !isContactStepValid) {
-    setShowContactErrors(true);
-    return;
-  }
+  const nextStep = () => {
+    if (currentStep === 3 && !isContactStepValid) {
+      setShowContactErrors(true);
+      return;
+    }
 
-  setShowContactErrors(false);
+    setShowContactErrors(false);
 
-  setCurrentStep((step) => Math.min(step + 1, steps.length - 1));
+    setCurrentStep((step) => Math.min(step + 1, steps.length - 1));
 
-  window.setTimeout(() => {
-    scrollToBuilderTop();
-  }, 80);
-};
+    window.setTimeout(() => {
+      scrollToBuilderTop();
+    }, 80);
+  };
 
   const previousStep = () => setCurrentStep((step) => Math.max(step - 1, 0));
 
@@ -381,11 +446,11 @@ const scrollToBuilderTop = () => {
                                 }),
                               );
                             }}
-                          className={`rounded-[2rem] border p-6 text-left transition hover:scale-[1.02] ${
-  isSelected
-    ? "border-blue-400 bg-blue-400/[0.12] shadow-[0_0_70px_rgba(59,130,246,0.18)]"
-    : "border-white/10 bg-black/25 hover:border-white/20"
-}`}
+                            className={`rounded-[2rem] border p-6 text-left transition hover:scale-[1.02] ${
+                              isSelected
+                                ? "border-blue-400 bg-blue-400/[0.12] shadow-[0_0_70px_rgba(59,130,246,0.18)]"
+                                : "border-white/10 bg-black/25 hover:border-white/20"
+                            }`}
                           >
                             {pack.featured && (
                               <div className="mb-4 inline-flex rounded-full border border-blue-400/30 bg-blue-400/10 px-3 py-1 text-xs text-blue-200">
@@ -411,7 +476,7 @@ const scrollToBuilderTop = () => {
                           </button>
                         );
                       })}
-                                        </div>
+                    </div>
 
                     <p className="mt-8 max-w-2xl text-sm leading-7 text-white/50">
                       Twijfel je tussen Growth en Agency Level?{" "}
@@ -419,11 +484,11 @@ const scrollToBuilderTop = () => {
                         href="/seo-landingspaginas"
                         className="font-medium text-blue-300 underline underline-offset-4 transition hover:text-blue-200"
                       >
-                        Ontdek hoe SEO-landingspagina’s helpen bij betere vindbaarheid in Google
+                        Ontdek hoe SEO-landingspagina’s helpen bij betere
+                        vindbaarheid in Google
                       </Link>
                       .
                     </p>
-
                   </div>
                 )}
 
@@ -434,29 +499,22 @@ const scrollToBuilderTop = () => {
                     </h2>
 
                     <p className="mt-4 max-w-2xl text-sm leading-7 text-white/50">
-                      Extra opties zijn bedoeld voor aanvullende wensen bovenop
-                      je pakket. Maandelijkse opties worden apart getoond en
-                      niet meegerekend als eenmalige projectprijs.
+                      {packageDetails[selectedPackage.name].intro}
                     </p>
 
                     <div className="mt-7 grid gap-4 md:grid-cols-2">
-                      {extras.map((extra) => {
+                      {availableExtras.map((extra) => {
                         const isSelected = selectedExtras.includes(extra.name);
-                        const isAvailable =
-                          extraIsAvailableForSelectedPackage(extra);
 
                         return (
                           <button
                             key={extra.name}
                             type="button"
-                            disabled={!isAvailable}
                             onClick={() => toggleExtra(extra.name)}
                             className={`rounded-2xl border px-5 py-4 text-left text-sm transition ${
                               isSelected
                                 ? "border-blue-400/50 bg-blue-400/[0.1] text-white"
-                                : isAvailable
-                                  ? "border-white/10 bg-black/25 text-white/70 hover:border-blue-400/30 hover:bg-blue-400/[0.06]"
-                                  : "cursor-not-allowed border-white/5 bg-white/[0.02] text-white/30 opacity-60"
+                                : "border-white/10 bg-black/25 text-white/70 hover:border-blue-400/30 hover:bg-blue-400/[0.06]"
                             }`}
                           >
                             <div className="flex items-start justify-between gap-4">
@@ -468,12 +526,6 @@ const scrollToBuilderTop = () => {
                                 <span className="mt-2 block text-xs leading-5 text-white/45">
                                   {extra.description}
                                 </span>
-
-                                {!isAvailable && (
-                                  <span className="mt-2 block text-xs text-blue-300/70">
-                                    Beschikbaar vanaf Growth.
-                                  </span>
-                                )}
                               </div>
 
                               <span className="shrink-0 text-blue-300">
@@ -486,70 +538,93 @@ const scrollToBuilderTop = () => {
                         );
                       })}
                     </div>
+
+                    <div className="mt-7 space-y-3 rounded-3xl border border-white/10 bg-black/25 p-5">
+                      {packageDetails[selectedPackage.name].links.map(
+                        (item) => (
+                          <p
+                            key={item.href}
+                            className="text-sm leading-7 text-white/50"
+                          >
+                            {item.text}{" "}
+                            <Link
+                              href={item.href}
+                              className="font-medium text-blue-300 underline underline-offset-4 transition hover:text-blue-200"
+                            >
+                              {item.label}
+                            </Link>
+                            .
+                          </p>
+                        ),
+                      )}
+                    </div>
                   </div>
                 )}
 
-               {currentStep === 2 && (
-  <div>
-    <h2 className="text-3xl font-semibold tracking-[-0.03em]">
-      03. Bekijk jouw prijsindicatie
-    </h2>
+                {currentStep === 2 && (
+                  <div>
+                    <h2 className="text-3xl font-semibold tracking-[-0.03em]">
+                      03. Bekijk jouw prijsindicatie
+                    </h2>
 
-    <div className="mt-7 rounded-[2rem] border border-white/10 bg-black/25 p-6 md:border-blue-400/30 md:bg-blue-400/[0.08] md:p-8">
-      <p className="text-sm uppercase tracking-[0.25em] text-blue-300">
-        Eenmalig project vanaf
-      </p>
+                    <div className="mt-7 rounded-[2rem] border border-white/10 bg-black/25 p-6 md:border-blue-400/30 md:bg-blue-400/[0.08] md:p-8">
+                      <p className="text-sm uppercase tracking-[0.25em] text-blue-300">
+                        Eenmalig project vanaf
+                      </p>
 
-      <p className="mt-4 text-5xl font-semibold tracking-[-0.05em] md:text-6xl">
-        €{totalPrice.toLocaleString("nl-NL")}
-      </p>
+                      <p className="mt-4 text-5xl font-semibold tracking-[-0.05em] md:text-6xl">
+                        €{totalPrice.toLocaleString("nl-NL")}
+                      </p>
 
-      {monthlyExtrasTotal > 0 && (
-        <p className="mt-4 text-base font-semibold text-blue-200 md:text-lg">
-          + vanaf €{monthlyExtrasTotal.toLocaleString("nl-NL")} p/m voor
-          maandelijkse opties
-        </p>
-      )}
+                      {monthlyExtrasTotal > 0 && (
+                        <p className="mt-4 text-base font-semibold text-blue-200 md:text-lg">
+                          + vanaf €{monthlyExtrasTotal.toLocaleString("nl-NL")}{" "}
+                          p/m voor maandelijkse opties
+                        </p>
+                      )}
 
-      <p className="mt-6 max-w-2xl text-base leading-8 text-white/60">
-        Dit is een prijsindicatie. Na jouw aanvraag bespreken we jouw wensen
-        persoonlijk en bevestigen we de definitieve prijs.
-      </p>
+                      <p className="mt-6 max-w-2xl text-base leading-8 text-white/60">
+                        Dit is een prijsindicatie. Na jouw aanvraag bespreken we
+                        jouw wensen persoonlijk en bevestigen we de definitieve
+                        prijs.
+                      </p>
 
-      <div className="mt-7 grid gap-3 md:hidden">
-        {[
-          "Persoonlijk contact binnen 24 uur",
-          "Restbetaling vóór livegang",
-          "Eerst goedkeuring, daarna publicatie",
-        ].map((item) => (
-          <div
-            key={item}
-            className="flex items-start gap-3 rounded-2xl border border-white/10 bg-white/[0.03] px-4 py-3"
-          >
-            <span className="mt-1 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-blue-400/15 text-xs font-bold text-blue-300">
-              ✓
-            </span>
+                      <div className="mt-7 grid gap-3 md:hidden">
+                        {[
+                          "Persoonlijk contact binnen 24 uur",
+                          "Restbetaling vóór livegang",
+                          "Eerst goedkeuring, daarna publicatie",
+                        ].map((item) => (
+                          <div
+                            key={item}
+                            className="flex items-start gap-3 rounded-2xl border border-white/10 bg-white/[0.03] px-4 py-3"
+                          >
+                            <span className="mt-1 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-blue-400/15 text-xs font-bold text-blue-300">
+                              ✓
+                            </span>
 
-            <span className="text-sm leading-6 text-white/70">{item}</span>
-          </div>
-        ))}
-      </div>
+                            <span className="text-sm leading-6 text-white/70">
+                              {item}
+                            </span>
+                          </div>
+                        ))}
+                      </div>
 
-      <div className="mt-7 rounded-3xl border border-white/10 bg-white/[0.03] p-5 md:hidden">
-        <p className="text-sm text-white/40">Betaling</p>
+                      <div className="mt-7 rounded-3xl border border-white/10 bg-white/[0.03] p-5 md:hidden">
+                        <p className="text-sm text-white/40">Betaling</p>
 
-        <p className="mt-2 text-lg font-semibold text-white">
-          50% aanbetaling
-        </p>
+                        <p className="mt-2 text-lg font-semibold text-white">
+                          50% aanbetaling
+                        </p>
 
-        <p className="mt-3 text-sm leading-6 text-white/50">
-          Na akkoord op de definitieve prijs start het project met een
-          aanbetaling van 50%.
-        </p>
-      </div>
-    </div>
-  </div>
-)}
+                        <p className="mt-3 text-sm leading-6 text-white/50">
+                          Na akkoord op de definitieve prijs start het project
+                          met een aanbetaling van 50%.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                )}
 
                 {currentStep === 3 && (
                   <div>
@@ -611,34 +686,37 @@ const scrollToBuilderTop = () => {
                       05. Verzend jouw aanvraag
                     </h2>
 
-                   <p className="mt-5 max-w-2xl text-base leading-8 text-white/60">
-  Jouw aanvraag is bijna klaar. Na verzending nemen we persoonlijk contact op
-  om jouw wensen te bespreken en de definitieve prijs te bevestigen.
-</p>
+                    <p className="mt-5 max-w-2xl text-base leading-8 text-white/60">
+                      Jouw aanvraag is bijna klaar. Na verzending nemen we
+                      persoonlijk contact op om jouw wensen te bespreken en de
+                      definitieve prijs te bevestigen.
+                    </p>
 
-<div className="mt-7 rounded-3xl border border-white/10 bg-white/[0.03] p-5">
-  <p className="mb-4 text-sm font-medium uppercase tracking-[0.22em] text-blue-300">
-    Wat gebeurt er hierna?
-  </p>
+                    <div className="mt-7 rounded-3xl border border-white/10 bg-white/[0.03] p-5">
+                      <p className="mb-4 text-sm font-medium uppercase tracking-[0.22em] text-blue-300">
+                        Wat gebeurt er hierna?
+                      </p>
 
-  <div className="grid gap-3">
-    {[
-      "Wij ontvangen jouw aanvraag",
-      "Je krijgt persoonlijk contact",
-      "We bespreken jouw wensen",
-      "Je ontvangt de definitieve offerte",
-      "Na akkoord starten we het project",
-    ].map((item, index) => (
-      <div key={item} className="flex items-start gap-3">
-        <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-blue-400/15 text-xs font-semibold text-blue-300">
-          {index + 1}
-        </span>
+                      <div className="grid gap-3">
+                        {[
+                          "Wij ontvangen jouw aanvraag",
+                          "Je krijgt persoonlijk contact",
+                          "We bespreken jouw wensen",
+                          "Je ontvangt de definitieve offerte",
+                          "Na akkoord starten we het project",
+                        ].map((item, index) => (
+                          <div key={item} className="flex items-start gap-3">
+                            <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-blue-400/15 text-xs font-semibold text-blue-300">
+                              {index + 1}
+                            </span>
 
-        <span className="text-sm leading-6 text-white/65">{item}</span>
-      </div>
-    ))}
-  </div>
-</div>
+                            <span className="text-sm leading-6 text-white/65">
+                              {item}
+                            </span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
 
                     <button
                       onClick={submitApplication}
@@ -654,36 +732,36 @@ const scrollToBuilderTop = () => {
               </motion.div>
             </AnimatePresence>
 
-          <div className="mt-10 flex justify-between gap-4">
-  <button
-    type="button"
-    onClick={() => {
-      if (currentStep === 0) return;
-      previousStep();
-    }}
-    aria-disabled={currentStep === 0}
-    className={`rounded-full border border-white/15 px-6 py-4 text-sm font-semibold text-white transition hover:bg-white/10 ${
-      currentStep === 0 ? "cursor-not-allowed opacity-30" : ""
-    }`}
-  >
-    Terug
-  </button>
+            <div className="mt-10 flex justify-between gap-4">
+              <button
+                type="button"
+                onClick={() => {
+                  if (currentStep === 0) return;
+                  previousStep();
+                }}
+                aria-disabled={currentStep === 0}
+                className={`rounded-full border border-white/15 px-6 py-4 text-sm font-semibold text-white transition hover:bg-white/10 ${
+                  currentStep === 0 ? "cursor-not-allowed opacity-30" : ""
+                }`}
+              >
+                Terug
+              </button>
 
-  {currentStep < steps.length - 1 && (
-    <button
-      type="button"
-      onClick={nextStep}
-      className="rounded-full bg-white px-6 py-4 text-sm font-semibold text-black transition hover:scale-[1.03]"
-    >
-      Volgende stap
-    </button>
-  )}
-</div>
+              {currentStep < steps.length - 1 && (
+                <button
+                  type="button"
+                  onClick={nextStep}
+                  className="rounded-full bg-white px-6 py-4 text-sm font-semibold text-black transition hover:scale-[1.03]"
+                >
+                  Volgende stap
+                </button>
+              )}
+            </div>
           </motion.div>
 
           <aside
             className={`h-fit rounded-[2rem] border border-blue-400/30 bg-blue-400/[0.07] p-6 backdrop-blur-xl lg:sticky lg:top-6 ${
-             currentStep === 2 || currentStep === 4 ? "hidden lg:block" : ""
+              currentStep === 2 || currentStep === 4 ? "hidden lg:block" : ""
             }`}
           >
             <p className="text-sm uppercase tracking-[0.25em] text-blue-300">
