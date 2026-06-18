@@ -33,7 +33,7 @@ const packages: WebsitePackage[] = [
     price: 1250,
     pages: "Tot 3 pagina’s + 2 SEO-landingspagina’s",
     description:
-      "Voor ondernemers die actief klanten willen aantrekken via Google.",
+      "Inclusief premium animaties op de homepage. Voor ondernemers die actief klanten willen aantrekken via Google.",
     featured: true,
   },
   {
@@ -41,7 +41,7 @@ const packages: WebsitePackage[] = [
     price: 2250,
     pages: "Tot 6 pagina’s + 5 SEO-landingspagina’s",
     description:
-      "Voor bedrijven die serieus willen investeren in online groei.",
+      "Inclusief premium animaties op de volledige website. Voor bedrijven die serieus willen investeren in online groei.",
   },
 ];
 
@@ -63,10 +63,18 @@ const extras: ExtraOption[] = [
   },
   {
     name: "Premium animatiepakket",
-    price: 350,
+    price: 250,
     billing: "one-time",
     description:
-      "Voor extra beweging, verfijnde interacties en een luxere gebruikerservaring.",
+      "Premium animaties en interactieve effecten voor de volledige one-page website.",
+    availableFor: ["Starter"],
+  },
+  {
+    name: "Extra animatiepagina",
+    price: 250,
+    billing: "one-time",
+    description:
+      "Voeg premium animaties toe aan één extra pagina naast de homepage.",
     availableFor: ["Growth"],
   },
   {
