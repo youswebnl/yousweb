@@ -19,6 +19,34 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
 
     {
+      url: `${baseUrl}/starter-website-pakket`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.9,
+    },
+
+    {
+      url: `${baseUrl}/growth-website-pakket`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.9,
+    },
+
+    {
+      url: `${baseUrl}/agency-website-pakket`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.9,
+    },
+
+    {
+      url: `${baseUrl}/website-offerte-systeem`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.88,
+    },
+
+    {
       url: `${baseUrl}/kosten-website-laten-maken`,
       lastModified: new Date(),
       changeFrequency: "monthly",
@@ -38,14 +66,23 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: 0.85,
     },
+
     {
       url: `${baseUrl}/nextjs-website-laten-maken`,
       lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 0.85,
     },
+
     {
       url: `${baseUrl}/website-builder`,
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 0.85,
+    },
+
+    {
+      url: `${baseUrl}/seo-landingspaginas`,
       lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 0.8,
@@ -53,12 +90,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
     {
       url: `${baseUrl}/portfolio-websites`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/seo-landingspaginas`,
       lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 0.75,

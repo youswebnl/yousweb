@@ -16,6 +16,8 @@ type PricingPlan = {
   price: string;
   featured?: boolean;
   description: string;
+  detailHref: string;
+  detailLabel: string;
   features: string[];
 };
 
@@ -57,6 +59,8 @@ const pricingPlans: PricingPlan[] = [
   {
     name: "Starter",
     price: "Vanaf €749",
+    detailHref: "/starter-website-pakket",
+    detailLabel: "Starter pakket",
     description:
       "Voor starters en zzp’ers die professioneel online zichtbaar willen worden met een sterke one-page website.",
     features: [
@@ -71,6 +75,8 @@ const pricingPlans: PricingPlan[] = [
     name: "Growth",
     price: "Vanaf €1.250",
     featured: true,
+    detailHref: "/growth-website-pakket",
+    detailLabel: "Growth pakket",
     description:
       "Meest gekozen voor ondernemers die actief klanten willen aantrekken via Google en sterker willen converteren.",
     features: [
@@ -84,6 +90,8 @@ const pricingPlans: PricingPlan[] = [
   {
     name: "Agency Level",
     price: "Vanaf €2.250",
+    detailHref: "/agency-website-pakket",
+    detailLabel: "Agency Level pakket",
     description:
       "Voor bedrijven die serieus willen investeren in online groei, vertrouwen en schaalbaarheid.",
     features: [
@@ -101,15 +109,18 @@ const faqs: FAQItem[] = [
     question: "Wat kost een professionele website laten maken?",
     answer: (
       <>
-        Een professionele website bij YousWeb start vanaf €749. De uiteindelijke
-        prijs hangt af van het pakket, het aantal pagina’s,
-        SEO-landingspagina’s, animaties en eventuele maatwerkfuncties. Via de{" "}
+        Een professionele website laten maken bij YousWeb start vanaf €749 voor
+        het Starter pakket. De prijs hangt af van je groeidoel, het aantal
+        pagina’s, SEO-landingspagina’s, animaties en eventuele maatwerkfuncties.
+        Een compacte one-page website is voordeliger dan een uitgebreidere
+        website met meerdere pagina’s, conversiestructuur en extra vindbaarheid.
+        Via de{" "}
         <Link href="/website-builder" className={linkClass}>
           Website Builder
         </Link>{" "}
-        stel je jouw website stap voor stap samen en ontvang je direct een
+        stel je jouw website stap voor stap samen en krijg je direct een
         duidelijke prijsindicatie. Daarna bespreken we persoonlijk wat het beste
-        past bij jouw bedrijf, doelgroep en groeidoel.
+        past bij jouw bedrijf, doelgroep en budget.
       </>
     ),
   },
@@ -117,17 +128,16 @@ const faqs: FAQItem[] = [
     question: "Welk websitepakket past het beste bij mijn bedrijf?",
     answer: (
       <>
-        Starter past bij ondernemers die professioneel online zichtbaar willen
-        zijn met een sterke one-page website. Growth is bedoeld voor ondernemers
-        die meer klanten willen aantrekken via Google met meerdere pagina’s,
-        SEO-landingspagina’s en premium animaties op de homepage. Agency Level
-        is geschikt voor bedrijven die willen investeren in een complete premium
-        website met meer pagina’s, meer SEO-structuur en animaties op de
-        volledige website. Je kunt jouw pakket kiezen via de{" "}
-        <Link href="/website-builder" className={linkClass}>
-          offerte builder
-        </Link>
-        .
+        Het beste pakket hangt af van jouw fase. Het{" "}
+        <Link href="/starter-website-pakket" className={linkClass}>
+          Starter pakket
+        </Link>{" "}
+        past bij ondernemers die professioneel online zichtbaar willen worden
+        met één sterke pagina. Growth is sterker wanneer je actief klanten wilt
+        aantrekken via Google met meerdere pagina’s, SEO-landingspagina’s en
+        premium animaties op de homepage. Agency Level past bij bedrijven die
+        willen investeren in een volledige premium website met meer pagina’s,
+        meer SEO-structuur en animaties op de volledige website.
       </>
     ),
   },
@@ -135,15 +145,17 @@ const faqs: FAQItem[] = [
     question: "Zit SEO inbegrepen bij een website?",
     answer: (
       <>
-        Ja. Elke website krijgt een sterke SEO-basis met duidelijke headings,
-        nette paginastructuur, responsive opbouw, snelle performance en interne
-        links. Bij Growth en Agency Level is er extra ruimte voor gerichte{" "}
+        Ja. Elke professionele website krijgt een sterke SEO-basis met logische
+        headings, nette paginastructuur, responsive opbouw, snelle performance
+        en interne links. Dat betekent niet dat elke website automatisch op
+        tientallen zoekwoorden rankt; daarvoor heb je gerichte content en
+        pagina’s nodig. Bij Growth en Agency Level is er extra ruimte voor{" "}
         <Link href="/seo-landingspaginas" className={linkClass}>
           SEO-landingspagina’s
         </Link>
         , waardoor je beter kunt inspelen op specifieke diensten, regio’s en
-        zoekwoorden. Zo bouw je niet alleen een mooie website, maar ook een
-        sterker fundament voor vindbaarheid in Google.
+        zoekintenties. Zo bouw je niet alleen een mooie website, maar ook een
+        fundament voor vindbaarheid in Google.
       </>
     ),
   },
@@ -151,16 +163,17 @@ const faqs: FAQItem[] = [
     question: "Waarom is een website met meerdere pagina’s beter voor SEO?",
     answer: (
       <>
-        Google begrijpt aparte, gerichte pagina’s vaak beter dan één lange
-        pagina. Een one-page website kan sterk zijn voor een compacte start,
-        maar met meerdere pagina’s kun je duidelijker uitleggen wat je doet,
-        voor wie je werkt en op welke zoektermen je gevonden wilt worden. Daarom
-        zijn{" "}
-        <Link href="/seo-landingspaginas" className={linkClass}>
-          SEO-landingspagina’s
+        Een one-page website kan sterk zijn voor een compacte start, maar voor
+        SEO is meerdere pagina’s vaak sterker. Google begrijpt aparte, gerichte
+        pagina’s beter dan één lange pagina waarin alle onderwerpen door elkaar
+        staan. Met meerdere pagina’s kun je jouw diensten, werkwijze,
+        veelgestelde vragen en lokale zoekwoorden duidelijker verdelen. Daarom
+        is het{" "}
+        <Link href="/growth-website-pakket" className={linkClass}>
+          Growth pakket
         </Link>{" "}
-        belangrijk voor ondernemers die lokaal of op meerdere diensten willen
-        groeien.
+        interessant voor ondernemers die niet alleen online zichtbaar willen
+        zijn, maar ook meer zoekkansen en aanvragen willen creëren.
       </>
     ),
   },
@@ -169,10 +182,12 @@ const faqs: FAQItem[] = [
     answer: (
       <>
         Ja. Elke website wordt responsive ontwikkeld voor desktop, tablet en
-        mobiel. We bouwen eerst een sterke desktopervaring en zorgen daarna dat
-        de mobiele versie strak, snel en duidelijk blijft. Dat is belangrijk
-        omdat veel bezoekers via mobiel oriënteren, vergelijken en contact
-        opnemen. In onze{" "}
+        mobiel. We werken desktop-first, omdat de premium uitstraling en
+        structuur daar het beste zichtbaar worden. Daarna vertalen we die
+        ervaring naar mobiel, zodat bezoekers ook op hun telefoon duidelijk
+        kunnen lezen, navigeren en contact opnemen. Mobiel is belangrijk voor
+        oriëntatie en snelle actie, maar desktop blijft vaak belangrijk voor
+        vertrouwen en beoordeling. In onze{" "}
         <Link href="/portfolio-websites" className={linkClass}>
           portfolio websites
         </Link>{" "}
@@ -186,14 +201,15 @@ const faqs: FAQItem[] = [
     answer: (
       <>
         Voor premium websites gebruiken wij vaak Next.js omdat het veel vrijheid
-        geeft in design, animaties, performance en schaalbaarheid. Daardoor zit
-        je minder vast aan standaard thema’s of zware plugins. Dat past goed bij
-        ondernemers die een snelle, moderne en professionele website willen.
-        Lees meer over onze aanpak op de pagina{" "}
+        geeft in design, animaties, performance en schaalbaarheid. Je zit minder
+        vast aan standaard thema’s, overbodige plugins of beperkingen van een
+        template. Daardoor kunnen we websites bouwen die sneller voelen,
+        strakker bewegen en beter aansluiten op jouw merk en conversiedoel. Voor
+        ondernemers die meer willen dan een standaard website is een{" "}
         <Link href="/nextjs-website-laten-maken" className={linkClass}>
           Next.js website laten maken
-        </Link>
-        .
+        </Link>{" "}
+        vaak de beste keuze.
       </>
     ),
   },
@@ -203,13 +219,14 @@ const faqs: FAQItem[] = [
       <>
         Ja. De websites worden schaalbaar opgebouwd, zodat je later extra
         pagina’s, case studies, video’s, SEO-content of maatwerkfuncties kunt
-        toevoegen. Denk bijvoorbeeld aan een{" "}
+        toevoegen. Denk bijvoorbeeld aan extra SEO-landingspagina’s, een online
+        afsprakenplanner, CRM-koppeling of een{" "}
         <Link href="/website-offerte-systeem" className={linkClass}>
           website offerte systeem
-        </Link>
-        , online afsprakenplanner, CRM-koppeling of extra SEO-landingspagina’s.
-        Zo kan je website meegroeien met je bedrijf zonder dat alles opnieuw
-        gebouwd hoeft te worden.
+        </Link>{" "}
+        waarmee bezoekers stap voor stap opties kiezen en een prijsindicatie
+        ontvangen. Zo groeit je website mee met je bedrijf zonder dat alles
+        opnieuw gebouwd hoeft te worden.
       </>
     ),
   },
@@ -217,14 +234,17 @@ const faqs: FAQItem[] = [
     question: "Hoe werkt het offerteproces?",
     answer: (
       <>
-        Je kiest eerst een pakket, voegt eventuele extra opties toe en verstuurt
-        daarna jouw aanvraag. Vervolgens nemen we persoonlijk contact op om jouw
-        wensen, planning en definitieve prijs te bespreken. De interactieve{" "}
+        Het offerteproces is bewust simpel gehouden. Je kiest eerst een pakket,
+        voegt alleen relevante extra opties toe en vult daarna je gegevens en
+        wensen in. De prijs die je ziet is een indicatie, zodat je direct weet
+        waar je ongeveer aan toe bent. Na je aanvraag nemen we persoonlijk
+        contact op om jouw doelen, planning, pagina’s en definitieve prijs te
+        bespreken. De interactieve{" "}
         <Link href="/website-builder" className={linkClass}>
           Website Builder
         </Link>{" "}
-        laat direct zien hoe dit werkt: van pakketkeuze en prijsindicatie tot
-        aanvraag en persoonlijke opvolging.
+        laat direct zien hoe dit werkt: van pakketkeuze tot aanvraag en
+        persoonlijke opvolging.
       </>
     ),
   },
@@ -578,6 +598,14 @@ export default function WebsiteLatenMakenClient() {
 
               <p className="mt-5 min-h-[84px] text-sm leading-7 text-white/55">
                 {plan.description}
+              </p>
+
+              <p className="mt-4 text-sm leading-7 text-white/45">
+                Wil je precies weten wat je krijgt binnen het{" "}
+                <Link href={plan.detailHref} className={linkClass}>
+                  {plan.detailLabel}
+                </Link>
+                ?
               </p>
 
               <div className="my-7 h-px bg-white/10" />
