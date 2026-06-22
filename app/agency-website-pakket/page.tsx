@@ -18,6 +18,9 @@ export const metadata: Metadata = {
   },
 };
 
+const linkClass =
+  "font-medium text-blue-300 underline underline-offset-4 transition hover:text-blue-200";
+
 const included = [
   "Alles uit Growth",
   "Website tot 6 pagina’s",
@@ -109,7 +112,12 @@ export default function AgencyWebsitePakketPage() {
           <p className="mt-8 max-w-2xl text-base leading-8 text-white/60 md:text-lg">
             Het Agency Level pakket is bedoeld voor bedrijven die serieus willen
             investeren in online groei, premium uitstraling, sterke
-            SEO-structuur en een website die schaalbaar is voor de toekomst.
+            SEO-structuur en een website die schaalbaar is voor de toekomst. Wil
+            je direct jouw pakket samenstellen? Gebruik dan de{" "}
+            <Link href="/website-builder" className={linkClass}>
+              Website Builder
+            </Link>
+            .
           </p>
 
           <div className="mt-10 flex flex-col gap-4 sm:flex-row">
@@ -145,13 +153,18 @@ export default function AgencyWebsitePakketPage() {
           <p>
             Agency Level is sterker dan alleen een grotere website. Het pakket
             is bedoeld voor bedrijven die hun online uitstraling, SEO-structuur
-            en conversie serieus willen aanpakken.
+            en conversie serieus willen aanpakken. Daarom is dit pakket vooral
+            geschikt wanneer je website een belangrijk onderdeel wordt van je
+            acquisitie en merkpositionering.
           </p>
 
           <p>
-            Je krijgt meer ruimte voor pagina’s, meer SEO-landingspagina’s en
-            premium animaties op de volledige website. Daardoor voelt de website
-            consistenter, professioneler en schaalbaarder aan.
+            Je krijgt meer ruimte voor pagina’s, meer{" "}
+            <Link href="/seo-landingspaginas" className={linkClass}>
+              SEO-landingspagina’s
+            </Link>{" "}
+            en premium animaties op de volledige website. Daardoor voelt de
+            website consistenter, professioneler en schaalbaarder aan.
           </p>
         </div>
       </section>
@@ -180,6 +193,16 @@ export default function AgencyWebsitePakketPage() {
               ))}
             </div>
           </div>
+
+          <p className="mt-8 max-w-3xl text-base leading-8 text-white/60">
+            Omdat Agency Level al veel premium onderdelen bevat, hoef je minder
+            losse opties te stapelen. Wil je zien hoe dit pakket uitkomt voor
+            jouw situatie? Stel jouw website samen via de{" "}
+            <Link href="/website-builder" className={linkClass}>
+              Website Builder
+            </Link>
+            .
+          </p>
         </div>
       </section>
 
@@ -192,6 +215,15 @@ export default function AgencyWebsitePakketPage() {
           <h2 className="text-4xl font-semibold tracking-[-0.04em] md:text-6xl">
             Agency Level draait om uitstraling, vindbaarheid en schaalbaarheid.
           </h2>
+
+          <p className="mt-6 text-base leading-8 text-white/60">
+            Dit pakket past goed bij een{" "}
+            <Link href="/nextjs-website-laten-maken" className={linkClass}>
+              Next.js website laten maken
+            </Link>
+            , omdat premium animaties, performance en schaalbaarheid daar veel
+            natuurlijker samenkomen.
+          </p>
         </div>
 
         <div className="grid gap-6 md:grid-cols-3">
@@ -221,6 +253,16 @@ export default function AgencyWebsitePakketPage() {
           <h2 className="text-4xl font-semibold tracking-[-0.04em] md:text-6xl">
             Voor bedrijven die meer willen dan een standaard website.
           </h2>
+
+          <p className="mt-6 text-base leading-8 text-white/60">
+            Agency Level is vooral interessant wanneer je meerdere diensten,
+            regio’s of doelgroepen professioneel wilt bedienen. Heb je daarnaast
+            een interactieve aanvraagflow nodig, dan kan een{" "}
+            <Link href="/website-offerte-systeem" className={linkClass}>
+              website offerte systeem
+            </Link>{" "}
+            een sterke aanvulling zijn.
+          </p>
         </div>
 
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -250,13 +292,19 @@ export default function AgencyWebsitePakketPage() {
           <p>
             Growth is sterk voor ondernemers die via Google willen groeien met
             meerdere pagina’s, SEO-landingspagina’s en premium homepage
-            animaties. Agency Level gaat verder.
+            animaties. Agency Level gaat verder en is bedoeld voor bedrijven die
+            hun volledige website als premium groeisysteem willen neerzetten.
           </p>
 
           <p>
             Agency Level past beter wanneer je meerdere markten, diensten of
             regio’s tegelijk wilt bedienen en de volledige website premium moet
-            aanvoelen.
+            aanvoelen. Wil je de mogelijkheden direct doorrekenen? Gebruik dan
+            de{" "}
+            <Link href="/website-builder" className={linkClass}>
+              Website Builder
+            </Link>
+            .
           </p>
         </div>
       </section>
@@ -274,7 +322,9 @@ export default function AgencyWebsitePakketPage() {
           <p className="mt-6 text-base leading-8 text-white/60">
             Premium animaties zijn binnen Agency Level al inbegrepen op de
             volledige website. Extra opties zijn vooral bedoeld voor extra
-            content, extra SEO-pagina’s, meertaligheid of support.
+            content, extra SEO-pagina’s, meertaligheid of support. Zo blijft het
+            pakket helder en voorkom je dat een premium traject voelt als een
+            losse lijst aan add-ons.
           </p>
         </div>
 
@@ -313,8 +363,11 @@ export default function AgencyWebsitePakketPage() {
           </h2>
 
           <p className="mx-auto mt-6 max-w-2xl text-base leading-8 text-white/60">
-            Stel jouw website samen in de Website Builder en ontvang direct een
-            duidelijke prijsindicatie.
+            Stel jouw website samen in de{" "}
+            <Link href="/website-builder" className={linkClass}>
+              Website Builder
+            </Link>{" "}
+            en ontvang direct een duidelijke prijsindicatie.
           </p>
 
           <div className="mt-9">

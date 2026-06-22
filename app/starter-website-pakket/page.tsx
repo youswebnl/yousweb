@@ -18,6 +18,9 @@ export const metadata: Metadata = {
   },
 };
 
+const linkClass =
+  "font-medium text-blue-300 underline underline-offset-4 transition hover:text-blue-200";
+
 const included = [
   "One-page website",
   "Premium basisdesign",
@@ -100,7 +103,12 @@ export default function StarterWebsitePakketPage() {
           <p className="mt-8 max-w-2xl text-base leading-8 text-white/60 md:text-lg">
             Het Starter pakket is bedoeld voor starters en zzp’ers die snel,
             professioneel en betrouwbaar online zichtbaar willen worden met één
-            sterke pagina.
+            sterke pagina. Wil je direct jouw pakket samenstellen? Gebruik dan
+            de{" "}
+            <Link href="/website-builder" className={linkClass}>
+              Website Builder
+            </Link>
+            .
           </p>
 
           <div className="mt-10 flex flex-col gap-4 sm:flex-row">
@@ -142,7 +150,12 @@ export default function StarterWebsitePakketPage() {
           <p>
             Het Starter pakket is bewust compact gehouden. Je krijgt een
             professionele basis zonder onnodige complexiteit, zodat jouw website
-            snel online kan staan en direct betrouwbaar aanvoelt.
+            snel online kan staan en direct betrouwbaar aanvoelt. Wil je meer
+            ruimte voor pagina’s en vindbaarheid, dan is het{" "}
+            <Link href="/growth-website-pakket" className={linkClass}>
+              Growth pakket
+            </Link>{" "}
+            de logische volgende stap.
           </p>
         </div>
       </section>
@@ -171,6 +184,15 @@ export default function StarterWebsitePakketPage() {
               ))}
             </div>
           </div>
+
+          <p className="mt-8 max-w-3xl text-base leading-8 text-white/60">
+            Wil je dit pakket direct vergelijken met je wensen? Stel jouw
+            website samen via de{" "}
+            <Link href="/website-builder" className={linkClass}>
+              Website Builder
+            </Link>{" "}
+            en bekijk direct jouw prijsindicatie.
+          </p>
         </div>
       </section>
 
@@ -183,6 +205,16 @@ export default function StarterWebsitePakketPage() {
           <h2 className="text-4xl font-semibold tracking-[-0.04em] md:text-6xl">
             Voor bedrijven met een duidelijke eerste stap online.
           </h2>
+
+          <p className="mt-6 text-base leading-8 text-white/60">
+            Heb je nu nog één duidelijke dienst of aanbod, dan is Starter vaak
+            genoeg. Verwacht je snel meerdere diensten, regio’s of zoekwoorden
+            te willen targeten? Dan past het{" "}
+            <Link href="/growth-website-pakket" className={linkClass}>
+              Growth pakket
+            </Link>{" "}
+            waarschijnlijk beter.
+          </p>
         </div>
 
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -220,7 +252,20 @@ export default function StarterWebsitePakketPage() {
 
           <p className="pt-3 text-base leading-8 text-white/60">
             Wil je meerdere pagina’s, SEO-landingspagina’s en premium animaties
-            op de homepage? Dan past het Growth pakket waarschijnlijk beter.
+            op de homepage? Dan past het{" "}
+            <Link href="/growth-website-pakket" className={linkClass}>
+              Growth pakket
+            </Link>{" "}
+            waarschijnlijk beter.
+          </p>
+
+          <p className="text-base leading-8 text-white/60">
+            Wil je direct meerdere diensten, markten of regio’s professioneel
+            neerzetten? Bekijk dan ook het{" "}
+            <Link href="/agency-website-pakket" className={linkClass}>
+              Agency Level pakket
+            </Link>
+            .
           </p>
         </div>
       </section>
@@ -237,7 +282,15 @@ export default function StarterWebsitePakketPage() {
 
           <p className="mt-6 text-base leading-8 text-white/60">
             Extra opties zijn bedoeld als aanvulling op het Starter pakket, niet
-            als vervanging van een uitgebreider Growth of Agency traject.
+            als vervanging van een uitgebreider{" "}
+            <Link href="/growth-website-pakket" className={linkClass}>
+              Growth pakket
+            </Link>{" "}
+            of{" "}
+            <Link href="/agency-website-pakket" className={linkClass}>
+              Agency Level pakket
+            </Link>
+            .
           </p>
         </div>
 
@@ -276,8 +329,11 @@ export default function StarterWebsitePakketPage() {
           </h2>
 
           <p className="mx-auto mt-6 max-w-2xl text-base leading-8 text-white/60">
-            Stel jouw website samen in de Website Builder en ontvang direct een
-            duidelijke prijsindicatie.
+            Stel jouw website samen in de{" "}
+            <Link href="/website-builder" className={linkClass}>
+              Website Builder
+            </Link>{" "}
+            en ontvang direct een duidelijke prijsindicatie.
           </p>
 
           <div className="mt-9">

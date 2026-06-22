@@ -18,6 +18,9 @@ export const metadata: Metadata = {
   },
 };
 
+const linkClass =
+  "font-medium text-blue-300 underline underline-offset-4 transition hover:text-blue-200";
+
 const included = [
   "Alles uit Starter",
   "Website tot 3 pagina’s",
@@ -131,7 +134,12 @@ export default function GrowthWebsitePakketPage() {
           <p className="mt-8 max-w-2xl text-base leading-8 text-white/60 md:text-lg">
             Het Growth pakket is bedoeld voor ondernemers die meer willen dan
             alleen online zichtbaar zijn. Je krijgt meer pagina’s, gerichte
-            SEO-landingspagina’s en premium animaties op de homepage.
+            SEO-landingspagina’s en premium animaties op de homepage. Wil je
+            direct jouw pakket samenstellen? Gebruik dan de{" "}
+            <Link href="/website-builder" className={linkClass}>
+              Website Builder
+            </Link>
+            .
           </p>
 
           <div className="mt-10 flex flex-col gap-4 sm:flex-row">
@@ -168,12 +176,22 @@ export default function GrowthWebsitePakketPage() {
             Growth is geschikt wanneer je website meer moet doen dan alleen
             professioneel ogen. Dit pakket helpt je om diensten duidelijker uit
             te leggen, meer vertrouwen op te bouwen en beter gevonden te worden.
+            Door de combinatie met{" "}
+            <Link href="/seo-landingspaginas" className={linkClass}>
+              SEO-landingspagina’s
+            </Link>{" "}
+            krijgt je website meer zoekkansen dan een compacte one-page website.
           </p>
 
           <p>
             De combinatie van meerdere pagina’s, SEO-landingspagina’s en premium
             homepage animaties maakt Growth de logische keuze voor ondernemers
-            die actief meer aanvragen willen ontvangen.
+            die actief meer aanvragen willen ontvangen. Wil je direct nóg meer
+            pagina’s, markten en premium uitstraling? Dan is het{" "}
+            <Link href="/agency-website-pakket" className={linkClass}>
+              Agency Level pakket
+            </Link>{" "}
+            de volgende stap.
           </p>
         </div>
       </section>
@@ -202,6 +220,15 @@ export default function GrowthWebsitePakketPage() {
               ))}
             </div>
           </div>
+
+          <p className="mt-8 max-w-3xl text-base leading-8 text-white/60">
+            Wil je zien hoe deze onderdelen samenkomen in jouw aanvraag? Stel
+            jouw website samen via de{" "}
+            <Link href="/website-builder" className={linkClass}>
+              Website Builder
+            </Link>{" "}
+            en ontvang direct een prijsindicatie.
+          </p>
         </div>
       </section>
 
@@ -214,6 +241,16 @@ export default function GrowthWebsitePakketPage() {
           <h2 className="text-4xl font-semibold tracking-[-0.04em] md:text-6xl">
             Growth geeft meer ruimte voor SEO, vertrouwen en conversie.
           </h2>
+
+          <p className="mt-6 text-base leading-8 text-white/60">
+            Wil je naast vindbaarheid ook een interactief aanvraagproces of
+            prijsindicatie op je website? Dan kan Growth worden uitgebreid met
+            een{" "}
+            <Link href="/website-offerte-systeem" className={linkClass}>
+              website offerte systeem
+            </Link>
+            .
+          </p>
         </div>
 
         <div className="grid gap-6 md:grid-cols-3">
@@ -244,6 +281,16 @@ export default function GrowthWebsitePakketPage() {
             Voor ondernemers die klanten willen aantrekken, niet alleen online
             aanwezig willen zijn.
           </h2>
+
+          <p className="mt-6 text-base leading-8 text-white/60">
+            Growth is vooral interessant wanneer je website een actieve rol moet
+            spelen in vindbaarheid, vertrouwen en conversie. Wil je meteen een
+            grotere premium structuur neerzetten, bekijk dan het{" "}
+            <Link href="/agency-website-pakket" className={linkClass}>
+              Agency Level pakket
+            </Link>
+            .
+          </p>
         </div>
 
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -280,7 +327,12 @@ export default function GrowthWebsitePakketPage() {
           <p>
             Growth is daarom vaak de meest logische keuze voor ondernemers die
             willen groeien via Google en meer aanvragen uit hun website willen
-            halen.
+            halen. Wil je nog meer SEO-landingspagina’s, meer pagina’s en
+            premium animaties op de volledige website? Dan past het{" "}
+            <Link href="/agency-website-pakket" className={linkClass}>
+              Agency Level pakket
+            </Link>{" "}
+            waarschijnlijk beter.
           </p>
         </div>
       </section>
@@ -297,7 +349,13 @@ export default function GrowthWebsitePakketPage() {
 
           <p className="mt-6 text-base leading-8 text-white/60">
             Extra opties zijn bedoeld als aanvulling op het Growth pakket, zodat
-            je website verder kan meegroeien met jouw doelen.
+            je website verder kan meegroeien met jouw doelen. Wil je minder
+            losse uitbreidingen en direct een completere premium structuur? Dan
+            is{" "}
+            <Link href="/agency-website-pakket" className={linkClass}>
+              Agency Level
+            </Link>{" "}
+            vaak logischer.
           </p>
         </div>
 
@@ -336,8 +394,11 @@ export default function GrowthWebsitePakketPage() {
           </h2>
 
           <p className="mx-auto mt-6 max-w-2xl text-base leading-8 text-white/60">
-            Stel jouw website samen in de Website Builder en ontvang direct een
-            duidelijke prijsindicatie.
+            Stel jouw website samen in de{" "}
+            <Link href="/website-builder" className={linkClass}>
+              Website Builder
+            </Link>{" "}
+            en ontvang direct een duidelijke prijsindicatie.
           </p>
 
           <div className="mt-9">
