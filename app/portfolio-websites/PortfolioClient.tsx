@@ -18,10 +18,13 @@ const projects: Project[] = [
     type: "Montage & renovatie website",
     description:
       "Een professionele website voor een montagebedrijf, gebouwd om vertrouwen te wekken, diensten duidelijk te presenteren en bezoekers richting contact te sturen.",
+
     desktopEmbed:
-      "https://player.mediadelivery.net/embed/686200/0051a90d-7bd6-4cca-a761-b18e937afe00?autoplay=true&loop=true&muted=true&preload=true&responsive=true",
+      "https://player.mediadelivery.net/embed/722358/d348d9c3-4442-4395-b8dd-7efd58398328?autoplay=true&loop=true&muted=true&preload=true&responsive=true",
+
     mobileEmbed:
-      "https://player.mediadelivery.net/embed/686200/7b6b7da7-6301-456e-b8ab-a642656daaf6?autoplay=true&loop=true&muted=true&preload=true&responsive=true",
+      "https://player.mediadelivery.net/embed/722358/2abccfb8-cbb2-44ea-a57a-a30964216ab1?autoplay=true&loop=true&muted=true&preload=true&responsive=true",
+
     highlights: [
       "Sterke eerste indruk",
       "Duidelijke dienstenstructuur",
@@ -29,15 +32,19 @@ const projects: Project[] = [
       "Contactgericht ontwerp",
     ],
   },
+
   {
     title: "Your Soul Therapist",
     type: "Therapie & persoonlijke begeleiding",
     description:
       "Een zachte, rustige en professionele website voor een therapeutische praktijk, met focus op vertrouwen, helderheid en een prettige gebruikerservaring.",
+
     desktopEmbed:
-      "https://player.mediadelivery.net/embed/686200/8299c1b4-6812-433e-84ce-82898b0cb262?autoplay=true&loop=true&muted=true&preload=true&responsive=true",
+      "https://player.mediadelivery.net/embed/722358/4a351cc1-995f-4b4f-82fc-8eddea968f20?autoplay=true&loop=true&muted=true&preload=true&responsive=true",
+
     mobileEmbed:
-      "https://player.mediadelivery.net/embed/686200/f90e35cb-7535-4343-9a95-e89bd8530632?autoplay=true&loop=true&muted=true&preload=true&responsive=true",
+      "https://player.mediadelivery.net/embed/722358/eebe1e2a-24fa-4b90-87c6-e813f3d951da?autoplay=true&loop=true&muted=true&preload=true&responsive=true",
+
     highlights: [
       "Rustige premium uitstraling",
       "Heldere pagina-opbouw",
@@ -45,15 +52,19 @@ const projects: Project[] = [
       "Vertrouwen en begeleiding",
     ],
   },
+
   {
     title: "YousWeb",
     type: "Live agency case study",
     description:
       "Deze website zelf: gebouwd als high-end voorbeeld van premium design, duidelijke pakketten, SEO-structuur en een werkende offerteflow.",
+
     desktopEmbed:
-      "https://player.mediadelivery.net/embed/686200/68ff6e60-7358-404f-915f-f7bb6a776726?autoplay=true&loop=true&muted=true&preload=true&responsive=true",
+      "https://player.mediadelivery.net/embed/722358/38b65f0b-9388-40b4-9d4a-653f0e6c7c06?autoplay=true&loop=true&muted=true&preload=true&responsive=true",
+
     mobileEmbed:
-      "https://player.mediadelivery.net/embed/686200/f9aff053-2a7a-4b6b-a35b-8bbff41cbf2b?autoplay=true&loop=true&muted=true&preload=true&responsive=true",
+      "https://player.mediadelivery.net/embed/722358/61929138-a323-4cbe-8957-07adebbac969?autoplay=true&loop=true&muted=true&preload=true&responsive=true",
+
     highlights: [
       "Premium homepage",
       "Website builder flow",

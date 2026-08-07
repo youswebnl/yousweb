@@ -17,7 +17,7 @@ const mobileSteps = [
 ];
 
 const videoEmbed =
-  "https://player.mediadelivery.net/embed/686200/1f83120f-53c0-4691-8b6b-4b18dc384d55?autoplay=true&loop=true&muted=true&preload=true&responsive=true";
+  "https://player.mediadelivery.net/embed/722358/b2057fc1-279d-4333-b5ef-c7135ff8b85d?autoplay=true&loop=true&muted=true&preload=true&responsive=true";
 
 export default function Portfolio() {
   return (

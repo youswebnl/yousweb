@@ -33,23 +33,30 @@ const portfolioProjects: PortfolioProject[] = [
   {
     title: "Zaanse Montage",
     type: "Montage & renovatie website",
+
     videoEmbed:
-      "https://player.mediadelivery.net/embed/686200/0051a90d-7bd6-4cca-a761-b18e937afe00?autoplay=true&loop=true&muted=true&preload=true&responsive=true",
+      "https://player.mediadelivery.net/embed/722358/d348d9c3-4442-4395-b8dd-7efd58398328?autoplay=true&loop=true&muted=true&preload=true&responsive=true",
+
     description:
       "Een professionele bedrijfswebsite met duidelijke dienstenstructuur, sterke eerste indruk en een contactgerichte opbouw.",
   },
+
   {
     title: "Your Soul Therapist",
     type: "Therapie & coaching website",
+
     videoEmbed:
-      "https://player.mediadelivery.net/embed/686200/8299c1b4-6812-433e-84ce-82898b0cb262?autoplay=true&loop=true&muted=true&preload=true&responsive=true",
+      "https://player.mediadelivery.net/embed/722358/4a351cc1-995f-4b4f-82fc-8eddea968f20?autoplay=true&loop=true&muted=true&preload=true&responsive=true",
+
     description:
       "Een rustige premium website met zachte uitstraling, heldere gebruikerservaring en focus op vertrouwen.",
   },
+
   {
     title: "Volgende case study",
     type: "Binnenkort toegevoegd",
     videoEmbed: null,
+
     description:
       "Binnenkort voegen we hier een nieuwe website case toe met premium design, sterke UX en conversiegerichte structuur.",
   },
